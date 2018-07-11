@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Material Admin</title>
+  <title>مستخدم جديد</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../node_modules/mdi/css/materialdesignicons.min.css">
   <!-- endinject -->
@@ -31,6 +31,27 @@
                   <form>
                     <div class="mdc-layout-grid">
             					<div class="mdc-layout-grid__inner">
+                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
+                          <label class="mdc-text-field w-100">
+                            <input type="text" class="mdc-text-field__input">
+                            <span class="mdc-text-field__label">First Name</span>
+                            <div class="mdc-text-field__bottom-line"></div>
+                          </label>
+            						</div>
+                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
+                          <label class="mdc-text-field w-100">
+                            <input type="text" class="mdc-text-field__input">
+                            <span class="mdc-text-field__label">Last Name</span>
+                            <div class="mdc-text-field__bottom-line"></div>
+                          </label>
+            						</div>
+                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+                          <label class="mdc-text-field w-100">
+                            <input type="text" class="mdc-text-field__input">
+                            <span class="mdc-text-field__label">Email</span>
+                            <div class="mdc-text-field__bottom-line"></div>
+                          </label>
+            						</div>
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
                           <label class="mdc-text-field w-100">
                             <input type="text" class="mdc-text-field__input">
@@ -64,7 +85,7 @@
                         </div>
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
                           <button class="mdc-button mdc-button--raised w-100" data-mdc-auto-init="MDCRipple">
-                            Login
+                            Sign Up
                           </button>
                         </div>
             					</div>

@@ -10,7 +10,7 @@
         </section>
         <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
 
-        
+
           <div class="mdc-menu-anchor mr-1">
             <a href="#" class="mdc-toolbar__icon toggle mdc-ripple-surface" data-toggle="dropdown" toggle-dropdown="logout-menu" data-mdc-auto-init="MDCRipple">
               <i class="material-icons">more_vert</i>
@@ -22,6 +22,7 @@
                     Settings
                   </li>
                   <li class="mdc-list-item" role="menuitem" tabindex="0">
+
                     <i class="material-icons mdc-theme--primary mr-1">power_settings_new</i>
                     Logout
                   </li>
