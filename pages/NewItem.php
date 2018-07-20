@@ -81,7 +81,7 @@
 								</section>
 								<div class="template-demo">
 											<!-- add new table -->
-									<form class="form-horizontal " enctype="multipart/form-data" id="AddItem">
+									<form class="form-horizontal " method="POST" enctype="multipart/form-data" id="AddItem">
 
 										<div class="form-group">
 										  <select class="form-control" name="group_items_id" placeholder="المجموعة"required>
@@ -195,7 +195,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "لا يوجد شيئ لعرض ........ <i class='mdi mdi-heart text-red'></i>";
 }
-$conn->close();
+//$conn->close();
 ?>
 										</tbody>
 									</table>
@@ -211,8 +211,8 @@ $conn->close();
 		</div>
 
   </div>
-	<!-- partial:../../partials/_footer.html -->
-	<?php include "../partials/_footer.html"; ?>
+	<!-- partial:../../partials/_FOOTER.PHP -->
+	<?php include "../partials/_FOOTER.PHP"; ?>
 	<!-- partial -->
   <!-- body wrapper -->
   <!-- plugins:js -->

@@ -106,8 +106,8 @@ $conn->close();
 		</div>
 
   </div>
-	<!-- partial:../../partials/_footer.html -->
-	<?php require_once('../partials/_footer.html'); ?>
+	<!-- partial:../../partials/_FOOTER.PHP -->
+	<?php require_once('../partials/_FOOTER.PHP'); ?>
 
 	<!-- partial -->
   <!-- body wrapper -->

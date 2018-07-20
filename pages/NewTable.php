@@ -133,8 +133,8 @@ $conn->close();
 		</div>
 
   </div>
-	<!-- partial:../../partials/_footer.html -->
-	<?php include "../partials/_footer.html"; ?>
+	<!-- partial:../../partials/_FOOTER.PHP -->
+	<?php include "../partials/_FOOTER.PHP"; ?>
 	<!-- partial -->
   <!-- body wrapper -->
   <!-- plugins:js -->

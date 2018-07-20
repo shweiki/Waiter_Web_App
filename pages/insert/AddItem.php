@@ -41,7 +41,7 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 
 }else {
-  echo "   .fsdfdsfdsfsddfsdfsdf";
+  echo "";
 }
 
  ?>

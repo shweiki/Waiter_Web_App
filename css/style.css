@@ -11,7 +11,8 @@
 /*-------------------------------------------------------------------*/
 /* === Import template variables === */
 
-
+html {
+ font-size: 16px;}
 @keyframes mdc-ripple-fg-radius-in {
   from {
     animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

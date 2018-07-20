@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+_FOOTER.PHP<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="../css/tableTab.css">
 </head>
 
-<body >
+<body>
   <div class="body-wrapper">
     <!-- partial:partials/_sidebar.html -->
     <?php include "../partials/_sidebar.php"; ?>
@@ -44,115 +44,108 @@
 
           <div class="container">
         <div class="row">
-    		<div class="col-md-12" style=" position: unset;">
+
     			<h3><?php echo $hall_name; ?></h3>
 
-    			<div class="tabbable-panel">
-    				<div class="tabbable-line">
-    					<ul class="nav nav-tabs ">
-    						<li class="mx-auto active">
-    							<a href="#tab_default_1" data-toggle="tab">
-    							قيد انتظار </a>
-    						</li>
-    						<li class="mx-auto">
-    							<a href="#tab_default_2" data-toggle="tab">
-    							فارغ </a>
-    						</li>
-    						<li class="mx-auto">
-    							<a href="#tab_default_3" data-toggle="tab">
-    							محجوز </a>
-    						</li>
-    					</ul>
-    					<div class="tab-content">
+					<div class="col-md-8">
+	            <div class="panel with-nav-tabs panel-primary">
+	                <div class="panel-heading">
+	                        <ul class="nav nav-tabs">
 
-    						<div class="tab-pane active" id="tab_default_1">
-<?php
-   $sql = "SELECT * FROM tables_ WHERE hall_id =$hall_id and status = 2 ";
- $result = $conn->query($sql);
+	                            <li><a href="#tab1primary" data-toggle="tab">		فارغ</a></li>
+															<li class=""><a href="#tab2primary" data-toggle="tab">	قيد انتظار </a></li>
+	                            <li><a href="#tab3primary" data-toggle="tab">	محجوز </a></li>
+	                        </ul>
+	                </div>
+	                <div class="panel-body">
+	                    <div class="tab-content">
+	                        <div class="tab-pane   in active" id="tab1primary">
+														<?php
+													   $sql = "SELECT * FROM tables_ WHERE hall_id =$hall_id and status = 1 ";
+													 $result = $conn->query($sql);
 
- if ($result->num_rows > 0) {
- // output data of each row
- while($row = $result->fetch_assoc()) {
- ?>
- <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
-  <div class="card-header"><?php echo $row["name_table"]; ?></div>
-  <div class="card-body">
-    <h5 class="card-title">عدد الكراسي <?php echo $row["num_chair"]; ?></h5>
-    <p class="card-text"><?php echo $row["note"]; ?></p>
+													 if ($result->num_rows > 0) {
+													 // output data of each row
+													 while($row = $result->fetch_assoc()) {
+													 ?>
+
+													 <div class="card border-primary mb-3" style="max-width: 18rem;">
+  <div class="card-header"><?= $row["name_table"]; ?></div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">عدد الكراسي <?= $row["num_chair"]; ?></h5>
+    <p class="card-text"><?= $row["note"]; ?>.</p>
+				<a href="../pages/EndTable.php?table_id=<?=  $row['id']; ?>" class="btn btn-danger">انهاء الطاولة</a>
   </div>
+								</div>
+													 <?php
+													 }
+
+													 } else {
+													 echo "لا يوجد شيئ لعرض ........ <i class='mdi mdi-heart text-red'></i>";
+													 }
+													?>
 </div>
- <?php
- }
+	                        <div class="tab-pane  " id="tab2primary">
+														  <?php
+					                     $sql = "SELECT * FROM tables_ WHERE hall_id =$hall_id and status=2 ";
+					                   $result = $conn->query($sql);
 
- } else {
- echo "لا يوجد شيئ لعرض ........ <i class='mdi mdi-heart text-red'></i>";
- }
-?>
+					                   if ($result->num_rows > 0) {
+					                   // output data of each row
+					                   while($row = $result->fetch_assoc()) {
+					                   ?>
+														 <div class="card border-primary mb-3" style="max-width: 18rem;">
+						<div class="card-header"><?= $row["name_table"]; ?></div>
+						<div class="card-body text-primary">
+						<h5 class="card-title">عدد الكراسي <?= $row["num_chair"]; ?></h5>
+						<p class="card-text"><?= $row["note"]; ?>.</p>
+						<a href="../pages/OrderTable.php?table_id=<?php echo $row['id']; ?>&table_name=<?php echo $row['name_table']; ?>" class="btn btn-success">طلبات</a>
+		<a href="../pages/booking.php?table_id=<?php echo $row['id']; ?>" class="btn btn-success">حجز</a>
+						</div>
+									</div>
 
-    						</div>
-    						<div class="tab-pane" id="tab_default_2">
-   <div class="row">
-                  <?php
-                     $sql = "SELECT * FROM tables_ WHERE hall_id =$hall_id and status=1 ";
-                   $result = $conn->query($sql);
+					                   <?php
+					                   }
 
-                   if ($result->num_rows > 0) {
-                   // output data of each row
-                   while($row = $result->fetch_assoc()) {
-                   ?>
+					                   } else {
+					                   echo "لا يوجد شيئ لعرض ........ <i class='mdi mdi-heart text-red'></i>";
+					                   }
+					                  ?>
+													</div>
+	                        <div class="tab-pane  " id="tab3primary">
+													                  <?php
+													                     $sql = "SELECT * FROM tables_ WHERE hall_id =$hall_id and status=3 ";
+													                   $result = $conn->query($sql);
 
-                   <div class="card  bg-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header"><?php echo $row["name_table"]; ?></div>
-                    <div class="card-body">
-                      <h5 class="card-title">عدد الكراسي <?php echo $row["num_chair"]; ?></h5>
-                      <p class="card-text"><?php echo $row["note"]; ?></p>
-                      <a href="../pages/booking.php?table_id=<?php echo $row['id']; ?>" class="btn btn-success">حجز</a>
-                    </div>
-                  </div>
+													                   if ($result->num_rows > 0) {
+													                   // output data of each row
+													                   while($row = $result->fetch_assoc()) {
+													                   ?>
+																						 <div class="card border-primary mb-3" style="max-width: 18rem;">
+														<div class="card-header"><?= $row["name_table"]; ?></div>
+														<div class="card-body text-primary">
+														<h5 class="card-title">عدد الكراسي <?= $row["num_chair"]; ?></h5>
+														<p class="card-text"><?= $row["note"]; ?>.</p>
+														<a href="../pages/CancelBooking.php?table_id=<?= $row['id']; ?>" class="btn btn-danger">الغاء الحجز </a>
+										<a href="../pages/booking.php?table_id=<?= $row['id']; ?>" class="btn btn-success">طلبات</a>
+														</div>
+																	</div>
+													                   <?php
+													                   }
 
-                   <?php
-                   }
+													                   } else {
+													                   echo "لا يوجد شيئ لعرض ........ <i class='mdi mdi-heart text-red'></i>";
+													                   }
+													                  ?>
+</div>
 
-                   } else {
-                   echo "لا يوجد شيئ لعرض ........ <i class='mdi mdi-heart text-red'></i>";
-                   }
-                  ?>
-    </div>
-    						</div>
-    						<div class="tab-pane" id="tab_default_3">
-
-                  <?php
-                     $sql = "SELECT * FROM tables_ WHERE hall_id =$hall_id and status=3 ";
-                   $result = $conn->query($sql);
-
-                   if ($result->num_rows > 0) {
-                   // output data of each row
-                   while($row = $result->fetch_assoc()) {
-                   ?>
-                   <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-                    <div class="card-header"><?php echo $row["name_table"]; ?></div>
-                    <div class="card-body">
-                      <h5 class="card-title">عدد الكراسي <?php echo $row["num_chair"]; ?></h5>
-                      <p class="card-text"><?php echo $row["note"]; ?></p>
-                        <a href="../pages/OrderTable.php?table_id=<?php echo $row['id']; ?>&table_name=<?php echo $row['name_table']; ?>" class="btn btn-danger">طلب</a>
-                        <a href="../pages/close_booking.php?table_id=<?php echo $row['id']; ?>" class="btn btn-danger">الغاء الحجز</a>
-                    </div>
-                  </div>
-                   <?php
-                   }
-
-                   } else {
-                   echo "لا يوجد شيئ لعرض ........ <i class='mdi mdi-heart text-red'></i>";
-                   }
-                  ?>
-
-    						</div>
-    					</div>
-    				</div>
-    			</div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
 
 
-    		</div>
+
     	</div>
     </div>
 			</main>
@@ -161,8 +154,8 @@
 		</div>
 
 
-	<!-- partial:../../partials/_footer.html -->
-	<?php include "../partials/_footer.html"; ?>
+	<!-- partial:../../partials/_FOOTER.PHP -->
+	<?php include "../partials/_FOOTER.PHP"; ?>
 	<!-- partial -->
   <!-- body wrapper -->
   <!-- plugins:js -->

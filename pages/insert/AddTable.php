@@ -4,7 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $sql = "INSERT INTO tables_ (name_table, status,num_chair,note,hall_id)
   VALUES ('$name_table',
-		1,
+		2,
 		$num_chair,
 		'$note',
 	$hall_id)";
