@@ -43,7 +43,7 @@
             while($row = $result->fetch_assoc()) {
             ?>
             <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link" href="../pages/ShowTableHall.php?hall_id=<?php echo $row['id']; ?>&name=<?php echo $row['name_hall']; ?>">
+              <a class="mdc-drawer-link" href="../pages/ShowTableHall.php?hall_id=<?php echo $row['id']; ?>">
               <?php echo $row["name_hall"]; ?>
               </a>
             </div>
