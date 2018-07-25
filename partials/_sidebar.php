@@ -15,6 +15,12 @@
               </a>
             </div>
             <div class="mdc-list-item mdc-drawer-item">
+              <a class="mdc-drawer-link" href="../pages/NewCustomer.php">
+                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">track_changes</i>
+              عملاء
+              </a>
+            </div>
+            <div class="mdc-list-item mdc-drawer-item">
               <a class="mdc-drawer-link" href="../pages/NewTable.php">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">track_changes</i>
                 طاولات

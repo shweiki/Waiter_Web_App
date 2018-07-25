@@ -1,8 +1,6 @@
-_FOOTER.PHP<!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-
 	<?php
   if ($_SERVER["REQUEST_METHOD"] == "GET") {
 		include "../connect_restaurent.php";
