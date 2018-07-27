@@ -34,7 +34,7 @@ require_once('../connect_restaurent.php');
     <!-- partial -->
 
 		<div class="page-wrapper mdc-toolbar-fixed-adjust">
-			<main style="direction: rtl; text-align: right;" >
+				<main class="content-wrapper drawer-minimized" style="direction: rtl; text-align: right;" >
 				<div class="mdc-layout-grid">
 					<div class="mdc-layout-grid__inner">
 

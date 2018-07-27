@@ -12,10 +12,11 @@
  // output data of each row
  while($row = $result->fetch_assoc()) {
 $hall_name = $row["name_hall"];
-}}
+}
+}
 
 }else {
- header('samples/404.html');
+header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
 }
 	 ?>
   <!-- Required meta tags -->
@@ -49,7 +50,7 @@ $hall_name = $row["name_hall"];
     <!-- partial -->
 
 		<div class="page-wrapper mdc-toolbar-fixed-adjust">
-			<main style="direction: rtl; text-align: right;" class="">
+				<main class="content-wrapper drawer-minimized" style="direction: rtl; text-align: right;" >
 <div class="" id='response'></div>
           <div class="container">
         <div class="row">
@@ -164,8 +165,7 @@ $hall_name = $row["name_hall"];
     </div>
 			</main>
 
-		</div>
-		</div>
+
 
 		<div class="modal fade" id="Booking" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="text-align: -webkit-right;">
 	<div class="modal-dialog" role="document">
@@ -261,6 +261,7 @@ $hall_name = $row["name_hall"];
    </div>
 	    </div>
 
+		</div>
 
 
 			<script type="text/javascript">
@@ -351,6 +352,7 @@ window.location.reload(true);
 	<?php include "../partials/_footer.PHP"; ?>
 	<!-- partial -->
   <!-- body wrapper -->
+		</div>
   <!-- plugins:js -->
 
   <script src="../js/material-components-web.min.js"></script>

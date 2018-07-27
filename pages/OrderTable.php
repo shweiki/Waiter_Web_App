@@ -6,7 +6,7 @@
    $table_id = $_GET["table_id"];
   $table_name = $_GET["table_name"];
 }else {
- header('samples/404.html');
+header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
 }
 	include "../connect_restaurent.php";
 	?>
@@ -38,8 +38,8 @@
    <?php include "../partials/_navbar.php"; ?>
     <!-- partial -->
 		<div class="page-wrapper mdc-toolbar-fixed-adjust">
-			<main style="direction: rtl; text-align: right;" >
-<div class="container">
+		<main class="content-wrapper drawer-minimized" style="direction: rtl; text-align: right;" >
+			<div class="container">
 		<div class="row">
 									<div class="col-3" >
 										<div class="card  border-success">
@@ -153,11 +153,9 @@
  </div>
  </div>
 
-
-
 				<div class="container">
 			<div class="row">
-			<div class="col-11" style=" position: unset;">
+			<div class="col-12" style=" position: unset;">
 				<div class="card text-center border-info mb-3">
   <div class="card-body">
 			<div class="tab-content">

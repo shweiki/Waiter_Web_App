@@ -4,11 +4,11 @@
 <head>
 
 	<?php
-  if ($_SERVER["REQUEST_METHOD"] == "GET") {
+  if (isset($_GET['Group_id'])) {
    $Group_id = $_GET["Group_id"];
       $Group_name = $_GET["name"];
 }else {
- header('samples/404.html');
+ header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
 }
 	include "../connect_restaurent.php"; ?>
   <!-- Required meta tags -->
@@ -40,7 +40,7 @@
     <!-- partial -->
 
 		<div class="page-wrapper mdc-toolbar-fixed-adjust">
-			<main style="direction: rtl; text-align: right;" class="">
+		<main class="content-wrapper drawer-minimized" style="direction: rtl; text-align: right;" >
 
           <div class="container">
             	<h3><?php echo $Group_name; ?></h3>

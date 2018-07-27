@@ -9,6 +9,7 @@ require_once('../connect_restaurent.php');
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>الصالات</title>
+
   <!-- plugins:css -->
   <link rel="stylesheet" href="../css/materialdesignicons.min.css">
           <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -16,10 +17,11 @@ require_once('../connect_restaurent.php');
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
+<link rel="shortcut icon" href="../images/favicon.png" />
   <!-- inject:css -->
   <link rel="stylesheet" href="../css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../images/favicon.png" />
+
 </head>
 
 <body >
@@ -34,7 +36,7 @@ require_once('../connect_restaurent.php');
     <!-- partial -->
 
 		<div class="page-wrapper mdc-toolbar-fixed-adjust">
-			<main style="direction: rtl; text-align: right;" >
+					<main class="content-wrapper drawer-minimized" style="direction: rtl; text-align: right;" >
 				<div class="mdc-layout-grid">
 					<div class="mdc-layout-grid__inner">
 

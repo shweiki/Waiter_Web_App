@@ -41,7 +41,7 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 
 }else {
-  echo "";
+  header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
 }
 
  ?>

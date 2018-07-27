@@ -10,9 +10,6 @@
 /* === Material Design framework === */
 /*-------------------------------------------------------------------*/
 /* === Import template variables === */
-
-html {
- font-size: 16px;}
 @keyframes mdc-ripple-fg-radius-in {
   from {
     animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -193,14 +190,16 @@ html {
   .mdc-button.mdc-ripple-upgraded {
     --mdc-ripple-fg-opacity: 0.32; }
 
-.mdc-button--raised:disabled,
+.mdc-button--raised:disabled, .mdc-pagination li a.active:disabled,
 .mdc-button--unelevated:disabled {
   background-color: rgba(0, 0, 0, 0.12);
   /* @alternate */
   color: rgba(0, 0, 0, 0.38);
   color: var(--mdc-theme-text-disabled-on-light, rgba(0, 0, 0, 0.38)); }
-  .mdc-button--theme-dark .mdc-button--raised:disabled,
-  .mdc-theme--dark .mdc-button--raised:disabled, .mdc-button--theme-dark
+  .mdc-button--theme-dark .mdc-button--raised:disabled, .mdc-button--theme-dark .mdc-pagination li a.active:disabled, .mdc-pagination li .mdc-button--theme-dark a.active:disabled,
+  .mdc-theme--dark .mdc-button--raised:disabled,
+  .mdc-theme--dark .mdc-pagination li a.active:disabled, .mdc-pagination li
+  .mdc-theme--dark a.active:disabled, .mdc-button--theme-dark
   .mdc-button--unelevated:disabled,
   .mdc-theme--dark
   .mdc-button--unelevated:disabled {
@@ -209,64 +208,64 @@ html {
     color: rgba(0, 0, 0, 0.38);
     color: var(--mdc-theme-text-disabled-on-light, rgba(0, 0, 0, 0.38)); }
 
-.mdc-button--raised:not(:disabled),
+.mdc-button--raised:not(:disabled), .mdc-pagination li a.active:not(:disabled),
 .mdc-button--unelevated:not(:disabled) {
   /* @alternate */
   background-color: #00a9f4; }
   @supports not (-ms-ime-align: auto) {
-    .mdc-button--raised:not(:disabled),
+    .mdc-button--raised:not(:disabled), .mdc-pagination li a.active:not(:disabled),
     .mdc-button--unelevated:not(:disabled) {
       background-color: var(--mdc-theme-primary, #00a9f4); } }
 
-.mdc-button--raised:not(:disabled),
+.mdc-button--raised:not(:disabled), .mdc-pagination li a.active:not(:disabled),
 .mdc-button--unelevated:not(:disabled) {
   /* @alternate */
   color: rgba(0, 0, 0, 0.87);
   color: var(--mdc-theme-text-primary-on-primary, rgba(0, 0, 0, 0.87)); }
 
-.mdc-button--raised::before, .mdc-button--raised::after,
+.mdc-button--raised::before, .mdc-pagination li a.active::before, .mdc-button--raised::after, .mdc-pagination li a.active::after,
 .mdc-button--unelevated::before,
 .mdc-button--unelevated::after {
   /* @alternate */
   background-color: rgba(0, 0, 0, 0.87); }
   @supports not (-ms-ime-align: auto) {
-    .mdc-button--raised::before, .mdc-button--raised::after,
+    .mdc-button--raised::before, .mdc-pagination li a.active::before, .mdc-button--raised::after, .mdc-pagination li a.active::after,
     .mdc-button--unelevated::before,
     .mdc-button--unelevated::after {
       background-color: var(--mdc-theme-text-primary-on-primary, rgba(0, 0, 0, 0.87)); } }
 
-.mdc-button--raised:hover::before,
+.mdc-button--raised:hover::before, .mdc-pagination li a.active:hover::before,
 .mdc-button--unelevated:hover::before {
   opacity: 0.04; }
 
-.mdc-button--raised:not(.mdc-ripple-upgraded):focus::before, .mdc-button--raised.mdc-ripple-upgraded--background-focused::before,
+.mdc-button--raised:not(.mdc-ripple-upgraded):focus::before, .mdc-pagination li a.active:not(.mdc-ripple-upgraded):focus::before, .mdc-button--raised.mdc-ripple-upgraded--background-focused::before, .mdc-pagination li a.mdc-ripple-upgraded--background-focused.active::before,
 .mdc-button--unelevated:not(.mdc-ripple-upgraded):focus::before,
 .mdc-button--unelevated.mdc-ripple-upgraded--background-focused::before {
   transition-duration: 75ms;
   opacity: 0.12; }
 
-.mdc-button--raised:not(.mdc-ripple-upgraded)::after,
+.mdc-button--raised:not(.mdc-ripple-upgraded)::after, .mdc-pagination li a.active:not(.mdc-ripple-upgraded)::after,
 .mdc-button--unelevated:not(.mdc-ripple-upgraded)::after {
   transition: opacity 150ms linear; }
 
-.mdc-button--raised:not(.mdc-ripple-upgraded):active::after,
+.mdc-button--raised:not(.mdc-ripple-upgraded):active::after, .mdc-pagination li a.active:not(.mdc-ripple-upgraded):active::after,
 .mdc-button--unelevated:not(.mdc-ripple-upgraded):active::after {
   transition-duration: 75ms;
   opacity: 0.16; }
 
-.mdc-button--raised.mdc-ripple-upgraded,
+.mdc-button--raised.mdc-ripple-upgraded, .mdc-pagination li a.mdc-ripple-upgraded.active,
 .mdc-button--unelevated.mdc-ripple-upgraded {
   --mdc-ripple-fg-opacity: 0.16; }
 
-.mdc-button--raised {
+.mdc-button--raised, .mdc-pagination li a.active {
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
   will-change: box-shadow; }
-  .mdc-button--raised:hover, .mdc-button--raised:focus {
+  .mdc-button--raised:hover, .mdc-pagination li a.active:hover, .mdc-button--raised:focus, .mdc-pagination li a.active:focus {
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); }
-  .mdc-button--raised:active {
+  .mdc-button--raised:active, .mdc-pagination li a.active:active {
     box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12); }
-  .mdc-button--raised:disabled {
+  .mdc-button--raised:disabled, .mdc-pagination li a.active:disabled {
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12); }
 
 .mdc-button--stroked {
@@ -17001,7 +17000,8 @@ footer {
 .mdc-persistent-drawer {
   position: fixed;
   top: 0;
-  left: 0; }
+  left: 0;
+  bottom: 0; }
   .mdc-persistent-drawer--open, .mdc-persistent-drawer__drawer {
     width: 255px;
     -webkit-box-shadow: 5px 0px 9px 0px rgba(0, 0, 0, 0.06);
@@ -17064,17 +17064,6 @@ footer {
       .mdc-persistent-drawer .mdc-drawer-item .mdc-expansion-panel.expanded {
         display: block;
         height: auto; }
-    .mdc-persistent-drawer .mdc-drawer-item.purchase-link .mdc-drawer-link {
-      -webkit-border-radius: 5px;
-      -moz-border-radius: 5px;
-      -ms-border-radius: 5px;
-      -o-border-radius: 5px;
-      border-radius: 5px;
-      color: #fff;
-      text-align: center;
-      display: block;
-      background: url(../images/cover/bg_profile.jpg);
-      background-size: cover; }
 
 body {
   padding: 0;
@@ -17094,7 +17083,7 @@ body {
     .body-wrapper .page-wrapper .content-wrapper {
       padding: 30px 0px 0px 255px;
       min-height: calc(100vh - 64px - 40px);
-      background: #f6f6f6;
+      background: #f5f5ff;
       -webkit-flex-grow: 1;
       flex-grow: 1; }
       .body-wrapper .page-wrapper .content-wrapper.drawer-minimized {
@@ -17425,13 +17414,6 @@ address p {
 .border-bottom {
   border-bottom: 1px solid #cccccc; }
 
-.purchase__card_section {
-  padding: 20px; }
-  .purchase__card_section .mdc-button {
-    margin-right: 10px; }
-    .purchase__card_section .mdc-button:not(.mdc-button--stroked) {
-      color: #fff; }
-
 .rounded {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -17473,224 +17455,226 @@ address p {
 /*-------------------------------------------------------------------*/
 /* === Components === */
 /* Buttons */
-.mdc-button--raised:not(:disabled), .mdc-button--unelevated:not(:disabled), .mdc-button {
+.mdc-button--raised:not(:disabled), .mdc-pagination li a.active:not(:disabled), .mdc-button--unelevated:not(:disabled), .mdc-button {
   color: #fff; }
 
-.mdc-button.secondary-text-button:not(:disabled) {
-  color: #e52d27; }
-
-.mdc-button.secondary-text-button::before, .mdc-button.secondary-text-button::after {
-  /* @alternate */
-  background-color: #e52d27; }
-  @supports not (-ms-ime-align: auto) {
-    .mdc-button.secondary-text-button::before, .mdc-button.secondary-text-button::after {
-      background-color: var(--mdc-theme-secondary, #e52d27); } }
-
-.mdc-button.secondary-text-button:hover::before {
-  opacity: 0.04; }
-
-.mdc-button.secondary-text-button:not(.mdc-ripple-upgraded):focus::before, .mdc-button.secondary-text-button.mdc-ripple-upgraded--background-focused::before {
-  transition-duration: 75ms;
-  opacity: 0.12; }
-
-.mdc-button.secondary-text-button:not(.mdc-ripple-upgraded)::after {
-  transition: opacity 150ms linear; }
-
-.mdc-button.secondary-text-button:not(.mdc-ripple-upgraded):active::after {
-  transition-duration: 75ms;
-  opacity: 0.16; }
-
-.mdc-button.secondary-text-button.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.16; }
-
-.mdc-button--theme-dark .mdc-button.secondary-text-button:not(:disabled),
-.mdc-theme--dark .mdc-button.secondary-text-button:not(:disabled) {
-  color: #e52d27; }
-
-.mdc-button--theme-dark .mdc-button.secondary-text-button::before, .mdc-button--theme-dark .mdc-button.secondary-text-button::after,
-.mdc-theme--dark .mdc-button.secondary-text-button::before,
-.mdc-theme--dark .mdc-button.secondary-text-button::after {
-  /* @alternate */
-  background-color: #e52d27; }
-  @supports not (-ms-ime-align: auto) {
-    .mdc-button--theme-dark .mdc-button.secondary-text-button::before, .mdc-button--theme-dark .mdc-button.secondary-text-button::after,
-    .mdc-theme--dark .mdc-button.secondary-text-button::before,
-    .mdc-theme--dark .mdc-button.secondary-text-button::after {
-      background-color: var(--mdc-theme-secondary, #e52d27); } }
-
-.mdc-button--theme-dark .mdc-button.secondary-text-button:hover::before,
-.mdc-theme--dark .mdc-button.secondary-text-button:hover::before {
-  opacity: 0.04; }
-
-.mdc-button--theme-dark .mdc-button.secondary-text-button:not(.mdc-ripple-upgraded):focus::before, .mdc-button--theme-dark .mdc-button.secondary-text-button.mdc-ripple-upgraded--background-focused::before,
-.mdc-theme--dark .mdc-button.secondary-text-button:not(.mdc-ripple-upgraded):focus::before,
-.mdc-theme--dark .mdc-button.secondary-text-button.mdc-ripple-upgraded--background-focused::before {
-  transition-duration: 75ms;
-  opacity: 0.12; }
-
-.mdc-button--theme-dark .mdc-button.secondary-text-button:not(.mdc-ripple-upgraded)::after,
-.mdc-theme--dark .mdc-button.secondary-text-button:not(.mdc-ripple-upgraded)::after {
-  transition: opacity 150ms linear; }
-
-.mdc-button--theme-dark .mdc-button.secondary-text-button:not(.mdc-ripple-upgraded):active::after,
-.mdc-theme--dark .mdc-button.secondary-text-button:not(.mdc-ripple-upgraded):active::after {
-  transition-duration: 75ms;
-  opacity: 0.16; }
-
-.mdc-button--theme-dark .mdc-button.secondary-text-button.mdc-ripple-upgraded,
-.mdc-theme--dark .mdc-button.secondary-text-button.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.16; }
-
-.mdc-button.secondary-filled-button:not(:disabled) {
-  background-color: #e52d27; }
-
-.mdc-button.secondary-filled-button:not(:disabled) {
-  /* @alternate */
-  color: white;
-  color: var(--mdc-theme-text-primary-on-dark, white); }
-
-.mdc-button.secondary-filled-button::before, .mdc-button.secondary-filled-button::after {
-  /* @alternate */
-  background-color: white; }
-  @supports not (-ms-ime-align: auto) {
-    .mdc-button.secondary-filled-button::before, .mdc-button.secondary-filled-button::after {
-      background-color: var(--mdc-theme-text-primary-on-dark, white); } }
-
-.mdc-button.secondary-filled-button:hover::before {
-  opacity: 0.08; }
-
-.mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded):focus::before, .mdc-button.secondary-filled-button.mdc-ripple-upgraded--background-focused::before {
-  transition-duration: 75ms;
-  opacity: 0.24; }
-
-.mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded)::after {
-  transition: opacity 150ms linear; }
-
-.mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded):active::after {
-  transition-duration: 75ms;
-  opacity: 0.32; }
-
-.mdc-button.secondary-filled-button.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.32; }
-
-.mdc-button--theme-dark .mdc-button.secondary-filled-button:not(:disabled),
-.mdc-theme--dark .mdc-button.secondary-filled-button:not(:disabled) {
-  background-color: #e52d27; }
-
-.mdc-button--theme-dark .mdc-button.secondary-filled-button:not(:disabled),
-.mdc-theme--dark .mdc-button.secondary-filled-button:not(:disabled) {
-  /* @alternate */
-  color: white;
-  color: var(--mdc-theme-text-primary-on-dark, white); }
-
-.mdc-button--theme-dark .mdc-button.secondary-filled-button::before, .mdc-button--theme-dark .mdc-button.secondary-filled-button::after,
-.mdc-theme--dark .mdc-button.secondary-filled-button::before,
-.mdc-theme--dark .mdc-button.secondary-filled-button::after {
-  /* @alternate */
-  background-color: white; }
-  @supports not (-ms-ime-align: auto) {
-    .mdc-button--theme-dark .mdc-button.secondary-filled-button::before, .mdc-button--theme-dark .mdc-button.secondary-filled-button::after,
-    .mdc-theme--dark .mdc-button.secondary-filled-button::before,
-    .mdc-theme--dark .mdc-button.secondary-filled-button::after {
-      background-color: var(--mdc-theme-text-primary-on-dark, white); } }
-
-.mdc-button--theme-dark .mdc-button.secondary-filled-button:hover::before,
-.mdc-theme--dark .mdc-button.secondary-filled-button:hover::before {
-  opacity: 0.08; }
-
-.mdc-button--theme-dark .mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded):focus::before, .mdc-button--theme-dark .mdc-button.secondary-filled-button.mdc-ripple-upgraded--background-focused::before,
-.mdc-theme--dark .mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded):focus::before,
-.mdc-theme--dark .mdc-button.secondary-filled-button.mdc-ripple-upgraded--background-focused::before {
-  transition-duration: 75ms;
-  opacity: 0.24; }
-
-.mdc-button--theme-dark .mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded)::after,
-.mdc-theme--dark .mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded)::after {
-  transition: opacity 150ms linear; }
-
-.mdc-button--theme-dark .mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded):active::after,
-.mdc-theme--dark .mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded):active::after {
-  transition-duration: 75ms;
-  opacity: 0.32; }
-
-.mdc-button--theme-dark .mdc-button.secondary-filled-button.mdc-ripple-upgraded,
-.mdc-theme--dark .mdc-button.secondary-filled-button.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.32; }
-
-.mdc-button.secondary-stroked-button:not(:disabled) {
-  color: #e52d27; }
-
-.mdc-button.secondary-stroked-button:not(:disabled) {
-  border-color: #e52d27; }
-
-.mdc-button.secondary-stroked-button::before, .mdc-button.secondary-stroked-button::after {
-  /* @alternate */
-  background-color: #e52d27; }
-  @supports not (-ms-ime-align: auto) {
-    .mdc-button.secondary-stroked-button::before, .mdc-button.secondary-stroked-button::after {
-      background-color: var(--mdc-theme-secondary, #e52d27); } }
-
-.mdc-button.secondary-stroked-button:hover::before {
-  opacity: 0.04; }
-
-.mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded):focus::before, .mdc-button.secondary-stroked-button.mdc-ripple-upgraded--background-focused::before {
-  transition-duration: 75ms;
-  opacity: 0.12; }
-
-.mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded)::after {
-  transition: opacity 150ms linear; }
-
-.mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded):active::after {
-  transition-duration: 75ms;
-  opacity: 0.16; }
-
-.mdc-button.secondary-stroked-button.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.16; }
-
-.mdc-button--theme-dark .mdc-button.secondary-stroked-button:not(:disabled),
-.mdc-theme--dark .mdc-button.secondary-stroked-button:not(:disabled) {
-  color: #e52d27; }
-
-.mdc-button--theme-dark .mdc-button.secondary-stroked-button:not(:disabled),
-.mdc-theme--dark .mdc-button.secondary-stroked-button:not(:disabled) {
-  border-color: #e52d27; }
-
-.mdc-button--theme-dark .mdc-button.secondary-stroked-button::before, .mdc-button--theme-dark .mdc-button.secondary-stroked-button::after,
-.mdc-theme--dark .mdc-button.secondary-stroked-button::before,
-.mdc-theme--dark .mdc-button.secondary-stroked-button::after {
-  /* @alternate */
-  background-color: #e52d27; }
-  @supports not (-ms-ime-align: auto) {
-    .mdc-button--theme-dark .mdc-button.secondary-stroked-button::before, .mdc-button--theme-dark .mdc-button.secondary-stroked-button::after,
-    .mdc-theme--dark .mdc-button.secondary-stroked-button::before,
-    .mdc-theme--dark .mdc-button.secondary-stroked-button::after {
-      background-color: var(--mdc-theme-secondary, #e52d27); } }
-
-.mdc-button--theme-dark .mdc-button.secondary-stroked-button:hover::before,
-.mdc-theme--dark .mdc-button.secondary-stroked-button:hover::before {
-  opacity: 0.04; }
-
-.mdc-button--theme-dark .mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded):focus::before, .mdc-button--theme-dark .mdc-button.secondary-stroked-button.mdc-ripple-upgraded--background-focused::before,
-.mdc-theme--dark .mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded):focus::before,
-.mdc-theme--dark .mdc-button.secondary-stroked-button.mdc-ripple-upgraded--background-focused::before {
-  transition-duration: 75ms;
-  opacity: 0.12; }
-
-.mdc-button--theme-dark .mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded)::after,
-.mdc-theme--dark .mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded)::after {
-  transition: opacity 150ms linear; }
-
-.mdc-button--theme-dark .mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded):active::after,
-.mdc-theme--dark .mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded):active::after {
-  transition-duration: 75ms;
-  opacity: 0.16; }
-
-.mdc-button--theme-dark .mdc-button.secondary-stroked-button.mdc-ripple-upgraded,
-.mdc-theme--dark .mdc-button.secondary-stroked-button.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.16; }
-
-.mdc-button .mdc-button__icon {
-  line-height: 33px; }
+.mdc-button {
+  color: #fff; }
+  .mdc-button.secondary-text-button:not(:disabled), .mdc-pagination.mdc-pagination--secondary li a.mdc-button:not(:disabled) {
+    color: #e52d27; }
+  .mdc-button.secondary-text-button::before, .mdc-pagination.mdc-pagination--secondary li a.mdc-button::before, .mdc-button.secondary-text-button::after, .mdc-pagination.mdc-pagination--secondary li a.mdc-button::after {
+    /* @alternate */
+    background-color: #e52d27; }
+    @supports not (-ms-ime-align: auto) {
+      .mdc-button.secondary-text-button::before, .mdc-pagination.mdc-pagination--secondary li a.mdc-button::before, .mdc-button.secondary-text-button::after, .mdc-pagination.mdc-pagination--secondary li a.mdc-button::after {
+        background-color: var(--mdc-theme-secondary, #e52d27); } }
+  .mdc-button.secondary-text-button:hover::before, .mdc-pagination.mdc-pagination--secondary li a.mdc-button:hover::before {
+    opacity: 0.04; }
+  .mdc-button.secondary-text-button:not(.mdc-ripple-upgraded):focus::before, .mdc-pagination.mdc-pagination--secondary li a.mdc-button:not(.mdc-ripple-upgraded):focus::before, .mdc-button.secondary-text-button.mdc-ripple-upgraded--background-focused::before, .mdc-pagination.mdc-pagination--secondary li a.mdc-button.mdc-ripple-upgraded--background-focused::before {
+    transition-duration: 75ms;
+    opacity: 0.12; }
+  .mdc-button.secondary-text-button:not(.mdc-ripple-upgraded)::after, .mdc-pagination.mdc-pagination--secondary li a.mdc-button:not(.mdc-ripple-upgraded)::after {
+    transition: opacity 150ms linear; }
+  .mdc-button.secondary-text-button:not(.mdc-ripple-upgraded):active::after, .mdc-pagination.mdc-pagination--secondary li a.mdc-button:not(.mdc-ripple-upgraded):active::after {
+    transition-duration: 75ms;
+    opacity: 0.16; }
+  .mdc-button.secondary-text-button.mdc-ripple-upgraded, .mdc-pagination.mdc-pagination--secondary li a.mdc-button.mdc-ripple-upgraded {
+    --mdc-ripple-fg-opacity: 0.16; }
+  .mdc-button--theme-dark .mdc-button.secondary-text-button:not(:disabled), .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button:not(:disabled), .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button:not(:disabled),
+  .mdc-theme--dark .mdc-button.secondary-text-button:not(:disabled),
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button:not(:disabled), .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button:not(:disabled) {
+    color: #e52d27; }
+  .mdc-button--theme-dark .mdc-button.secondary-text-button::before, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button::before, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button::before, .mdc-button--theme-dark .mdc-button.secondary-text-button::after, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button::after, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button::after,
+  .mdc-theme--dark .mdc-button.secondary-text-button::before,
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button::before, .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button::before,
+  .mdc-theme--dark .mdc-button.secondary-text-button::after,
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button::after, .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button::after {
+    /* @alternate */
+    background-color: #e52d27; }
+    @supports not (-ms-ime-align: auto) {
+      .mdc-button--theme-dark .mdc-button.secondary-text-button::before, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button::before, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button::before, .mdc-button--theme-dark .mdc-button.secondary-text-button::after, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button::after, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button::after,
+      .mdc-theme--dark .mdc-button.secondary-text-button::before,
+      .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button::before, .mdc-pagination.mdc-pagination--secondary li
+      .mdc-theme--dark a.mdc-button::before,
+      .mdc-theme--dark .mdc-button.secondary-text-button::after,
+      .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button::after, .mdc-pagination.mdc-pagination--secondary li
+      .mdc-theme--dark a.mdc-button::after {
+        background-color: var(--mdc-theme-secondary, #e52d27); } }
+  .mdc-button--theme-dark .mdc-button.secondary-text-button:hover::before, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button:hover::before, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button:hover::before,
+  .mdc-theme--dark .mdc-button.secondary-text-button:hover::before,
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button:hover::before, .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button:hover::before {
+    opacity: 0.04; }
+  .mdc-button--theme-dark .mdc-button.secondary-text-button:not(.mdc-ripple-upgraded):focus::before, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button:not(.mdc-ripple-upgraded):focus::before, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button:not(.mdc-ripple-upgraded):focus::before, .mdc-button--theme-dark .mdc-button.secondary-text-button.mdc-ripple-upgraded--background-focused::before, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.mdc-ripple-upgraded--background-focused::before, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button.mdc-ripple-upgraded--background-focused::before,
+  .mdc-theme--dark .mdc-button.secondary-text-button:not(.mdc-ripple-upgraded):focus::before,
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button:not(.mdc-ripple-upgraded):focus::before, .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button:not(.mdc-ripple-upgraded):focus::before,
+  .mdc-theme--dark .mdc-button.secondary-text-button.mdc-ripple-upgraded--background-focused::before,
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.mdc-ripple-upgraded--background-focused::before, .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button.mdc-ripple-upgraded--background-focused::before {
+    transition-duration: 75ms;
+    opacity: 0.12; }
+  .mdc-button--theme-dark .mdc-button.secondary-text-button:not(.mdc-ripple-upgraded)::after, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button:not(.mdc-ripple-upgraded)::after, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button:not(.mdc-ripple-upgraded)::after,
+  .mdc-theme--dark .mdc-button.secondary-text-button:not(.mdc-ripple-upgraded)::after,
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button:not(.mdc-ripple-upgraded)::after, .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button:not(.mdc-ripple-upgraded)::after {
+    transition: opacity 150ms linear; }
+  .mdc-button--theme-dark .mdc-button.secondary-text-button:not(.mdc-ripple-upgraded):active::after, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button:not(.mdc-ripple-upgraded):active::after, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button:not(.mdc-ripple-upgraded):active::after,
+  .mdc-theme--dark .mdc-button.secondary-text-button:not(.mdc-ripple-upgraded):active::after,
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button:not(.mdc-ripple-upgraded):active::after, .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button:not(.mdc-ripple-upgraded):active::after {
+    transition-duration: 75ms;
+    opacity: 0.16; }
+  .mdc-button--theme-dark .mdc-button.secondary-text-button.mdc-ripple-upgraded, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.mdc-ripple-upgraded, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button.mdc-ripple-upgraded,
+  .mdc-theme--dark .mdc-button.secondary-text-button.mdc-ripple-upgraded,
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.mdc-ripple-upgraded, .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button.mdc-ripple-upgraded {
+    --mdc-ripple-fg-opacity: 0.16; }
+  .mdc-button.secondary-filled-button:not(:disabled), .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:not(:disabled) {
+    background-color: #e52d27; }
+  .mdc-button.secondary-filled-button:not(:disabled), .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:not(:disabled) {
+    /* @alternate */
+    color: white;
+    color: var(--mdc-theme-text-primary-on-dark, white); }
+  .mdc-button.secondary-filled-button::before, .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active::before, .mdc-button.secondary-filled-button::after, .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active::after {
+    /* @alternate */
+    background-color: white; }
+    @supports not (-ms-ime-align: auto) {
+      .mdc-button.secondary-filled-button::before, .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active::before, .mdc-button.secondary-filled-button::after, .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active::after {
+        background-color: var(--mdc-theme-text-primary-on-dark, white); } }
+  .mdc-button.secondary-filled-button:hover::before, .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:hover::before {
+    opacity: 0.08; }
+  .mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded):focus::before, .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:not(.mdc-ripple-upgraded):focus::before, .mdc-button.secondary-filled-button.mdc-ripple-upgraded--background-focused::before, .mdc-pagination.mdc-pagination--secondary li a.mdc-button.mdc-ripple-upgraded--background-focused.active::before {
+    transition-duration: 75ms;
+    opacity: 0.24; }
+  .mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded)::after, .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:not(.mdc-ripple-upgraded)::after {
+    transition: opacity 150ms linear; }
+  .mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded):active::after, .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:not(.mdc-ripple-upgraded):active::after {
+    transition-duration: 75ms;
+    opacity: 0.32; }
+  .mdc-button.secondary-filled-button.mdc-ripple-upgraded, .mdc-pagination.mdc-pagination--secondary li a.mdc-button.mdc-ripple-upgraded.active {
+    --mdc-ripple-fg-opacity: 0.32; }
+  .mdc-button--theme-dark .mdc-button.secondary-filled-button:not(:disabled), .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:not(:disabled), .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button.active:not(:disabled),
+  .mdc-theme--dark .mdc-button.secondary-filled-button:not(:disabled),
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:not(:disabled), .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button.active:not(:disabled) {
+    background-color: #e52d27; }
+  .mdc-button--theme-dark .mdc-button.secondary-filled-button:not(:disabled), .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:not(:disabled), .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button.active:not(:disabled),
+  .mdc-theme--dark .mdc-button.secondary-filled-button:not(:disabled),
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:not(:disabled), .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button.active:not(:disabled) {
+    /* @alternate */
+    color: white;
+    color: var(--mdc-theme-text-primary-on-dark, white); }
+  .mdc-button--theme-dark .mdc-button.secondary-filled-button::before, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active::before, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button.active::before, .mdc-button--theme-dark .mdc-button.secondary-filled-button::after, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active::after, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button.active::after,
+  .mdc-theme--dark .mdc-button.secondary-filled-button::before,
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active::before, .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button.active::before,
+  .mdc-theme--dark .mdc-button.secondary-filled-button::after,
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active::after, .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button.active::after {
+    /* @alternate */
+    background-color: white; }
+    @supports not (-ms-ime-align: auto) {
+      .mdc-button--theme-dark .mdc-button.secondary-filled-button::before, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active::before, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button.active::before, .mdc-button--theme-dark .mdc-button.secondary-filled-button::after, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active::after, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button.active::after,
+      .mdc-theme--dark .mdc-button.secondary-filled-button::before,
+      .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active::before, .mdc-pagination.mdc-pagination--secondary li
+      .mdc-theme--dark a.mdc-button.active::before,
+      .mdc-theme--dark .mdc-button.secondary-filled-button::after,
+      .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active::after, .mdc-pagination.mdc-pagination--secondary li
+      .mdc-theme--dark a.mdc-button.active::after {
+        background-color: var(--mdc-theme-text-primary-on-dark, white); } }
+  .mdc-button--theme-dark .mdc-button.secondary-filled-button:hover::before, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:hover::before, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button.active:hover::before,
+  .mdc-theme--dark .mdc-button.secondary-filled-button:hover::before,
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:hover::before, .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button.active:hover::before {
+    opacity: 0.08; }
+  .mdc-button--theme-dark .mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded):focus::before, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:not(.mdc-ripple-upgraded):focus::before, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button.active:not(.mdc-ripple-upgraded):focus::before, .mdc-button--theme-dark .mdc-button.secondary-filled-button.mdc-ripple-upgraded--background-focused::before, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.mdc-ripple-upgraded--background-focused.active::before, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button.mdc-ripple-upgraded--background-focused.active::before,
+  .mdc-theme--dark .mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded):focus::before,
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:not(.mdc-ripple-upgraded):focus::before, .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button.active:not(.mdc-ripple-upgraded):focus::before,
+  .mdc-theme--dark .mdc-button.secondary-filled-button.mdc-ripple-upgraded--background-focused::before,
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.mdc-ripple-upgraded--background-focused.active::before, .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button.mdc-ripple-upgraded--background-focused.active::before {
+    transition-duration: 75ms;
+    opacity: 0.24; }
+  .mdc-button--theme-dark .mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded)::after, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:not(.mdc-ripple-upgraded)::after, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button.active:not(.mdc-ripple-upgraded)::after,
+  .mdc-theme--dark .mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded)::after,
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:not(.mdc-ripple-upgraded)::after, .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button.active:not(.mdc-ripple-upgraded)::after {
+    transition: opacity 150ms linear; }
+  .mdc-button--theme-dark .mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded):active::after, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:not(.mdc-ripple-upgraded):active::after, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button.active:not(.mdc-ripple-upgraded):active::after,
+  .mdc-theme--dark .mdc-button.secondary-filled-button:not(.mdc-ripple-upgraded):active::after,
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.active:not(.mdc-ripple-upgraded):active::after, .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button.active:not(.mdc-ripple-upgraded):active::after {
+    transition-duration: 75ms;
+    opacity: 0.32; }
+  .mdc-button--theme-dark .mdc-button.secondary-filled-button.mdc-ripple-upgraded, .mdc-button--theme-dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.mdc-ripple-upgraded.active, .mdc-pagination.mdc-pagination--secondary li .mdc-button--theme-dark a.mdc-button.mdc-ripple-upgraded.active,
+  .mdc-theme--dark .mdc-button.secondary-filled-button.mdc-ripple-upgraded,
+  .mdc-theme--dark .mdc-pagination.mdc-pagination--secondary li a.mdc-button.mdc-ripple-upgraded.active, .mdc-pagination.mdc-pagination--secondary li
+  .mdc-theme--dark a.mdc-button.mdc-ripple-upgraded.active {
+    --mdc-ripple-fg-opacity: 0.32; }
+  .mdc-button.secondary-stroked-button:not(:disabled) {
+    color: #e52d27; }
+  .mdc-button.secondary-stroked-button:not(:disabled) {
+    border-color: #e52d27; }
+  .mdc-button.secondary-stroked-button::before, .mdc-button.secondary-stroked-button::after {
+    /* @alternate */
+    background-color: #e52d27; }
+    @supports not (-ms-ime-align: auto) {
+      .mdc-button.secondary-stroked-button::before, .mdc-button.secondary-stroked-button::after {
+        background-color: var(--mdc-theme-secondary, #e52d27); } }
+  .mdc-button.secondary-stroked-button:hover::before {
+    opacity: 0.04; }
+  .mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded):focus::before, .mdc-button.secondary-stroked-button.mdc-ripple-upgraded--background-focused::before {
+    transition-duration: 75ms;
+    opacity: 0.12; }
+  .mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded)::after {
+    transition: opacity 150ms linear; }
+  .mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded):active::after {
+    transition-duration: 75ms;
+    opacity: 0.16; }
+  .mdc-button.secondary-stroked-button.mdc-ripple-upgraded {
+    --mdc-ripple-fg-opacity: 0.16; }
+  .mdc-button--theme-dark .mdc-button.secondary-stroked-button:not(:disabled),
+  .mdc-theme--dark .mdc-button.secondary-stroked-button:not(:disabled) {
+    color: #e52d27; }
+  .mdc-button--theme-dark .mdc-button.secondary-stroked-button:not(:disabled),
+  .mdc-theme--dark .mdc-button.secondary-stroked-button:not(:disabled) {
+    border-color: #e52d27; }
+  .mdc-button--theme-dark .mdc-button.secondary-stroked-button::before, .mdc-button--theme-dark .mdc-button.secondary-stroked-button::after,
+  .mdc-theme--dark .mdc-button.secondary-stroked-button::before,
+  .mdc-theme--dark .mdc-button.secondary-stroked-button::after {
+    /* @alternate */
+    background-color: #e52d27; }
+    @supports not (-ms-ime-align: auto) {
+      .mdc-button--theme-dark .mdc-button.secondary-stroked-button::before, .mdc-button--theme-dark .mdc-button.secondary-stroked-button::after,
+      .mdc-theme--dark .mdc-button.secondary-stroked-button::before,
+      .mdc-theme--dark .mdc-button.secondary-stroked-button::after {
+        background-color: var(--mdc-theme-secondary, #e52d27); } }
+  .mdc-button--theme-dark .mdc-button.secondary-stroked-button:hover::before,
+  .mdc-theme--dark .mdc-button.secondary-stroked-button:hover::before {
+    opacity: 0.04; }
+  .mdc-button--theme-dark .mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded):focus::before, .mdc-button--theme-dark .mdc-button.secondary-stroked-button.mdc-ripple-upgraded--background-focused::before,
+  .mdc-theme--dark .mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded):focus::before,
+  .mdc-theme--dark .mdc-button.secondary-stroked-button.mdc-ripple-upgraded--background-focused::before {
+    transition-duration: 75ms;
+    opacity: 0.12; }
+  .mdc-button--theme-dark .mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded)::after,
+  .mdc-theme--dark .mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded)::after {
+    transition: opacity 150ms linear; }
+  .mdc-button--theme-dark .mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded):active::after,
+  .mdc-theme--dark .mdc-button.secondary-stroked-button:not(.mdc-ripple-upgraded):active::after {
+    transition-duration: 75ms;
+    opacity: 0.16; }
+  .mdc-button--theme-dark .mdc-button.secondary-stroked-button.mdc-ripple-upgraded,
+  .mdc-theme--dark .mdc-button.secondary-stroked-button.mdc-ripple-upgraded {
+    --mdc-ripple-fg-opacity: 0.16; }
+  .mdc-button .mdc-button__icon {
+    line-height: 33px; }
 
 /* Cards */
 .mdc-card {
@@ -17778,6 +17762,24 @@ address p {
     .mdc-card__action-footer .col.mdc-button {
       height: auto; }
 
+/* Tabs */
+.tab-panel {
+  padding: 1rem 1rem; }
+
+.tab-panel-content {
+  display: none; }
+  .tab-panel-content.is-active {
+    display: block; }
+
+.mdc-tab-bar {
+  margin: 0; }
+
+.mdc-linear-progress--custom .mdc-linear-progress__bar-inner {
+  background: red; }
+
+.mdc-linear-progress--custom .mdc-linear-progress__buffer {
+  background: #ff6666; }
+
 .table {
   width: 100%;
   max-width: 100%;
@@ -17826,6 +17828,21 @@ address p {
   right: 0;
   left: auto !important; }
 
+/* Pagination */
+.mdc-pagination {
+  list-style-type: none;
+  padding-left: 0; }
+  .mdc-pagination li {
+    display: inline-block; }
+    .mdc-pagination li a {
+      min-width: auto;
+      width: 30px;
+      height: 30px;
+      line-height: 1;
+      padding: .5rem; }
+  .mdc-pagination.mdc-pagination--rounded li a {
+    border-radius: 50px; }
+
 /* Checkbox */
 .mdc-checkbox.demo-checkbox--custom-all::after, .mdc-checkbox.demo-checkbox--custom-all::before {
   background: red; }
@@ -17852,6 +17869,18 @@ address p {
 
 .mdc-radio.demo-radio--custom .mdc-radio__native-control:enabled + .mdc-radio__background .mdc-radio__inner-circle {
   background-color: orange; }
+
+.mdc-slider.demo-slider--custom:not(.mdc-slider--disabled) .mdc-slider__track {
+  background-color: #d32f2f; }
+
+.mdc-slider.demo-slider--custom:not(.mdc-slider--disabled) .mdc-slider__track-container {
+  background-color: #fdd835; }
+
+.mdc-slider.demo-slider--custom:not(.mdc-slider--disabled) .mdc-slider__track {
+  background-color: #d32f2f; }
+
+.mdc-slider.demo-slider--custom:not(.mdc-slider--disabled) .mdc-slider__focus-ring {
+  background-color: #f57f17; }
 
 .chartjs-legend ul {
   list-style: none;
@@ -17891,6 +17920,24 @@ address p {
     .rtl .chartjs-legend ul li span {
       margin-right: 0;
       margin-left: 1rem; }
+
+/* Flot chart */
+.float-chart-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  max-height: 100%; }
+
+.float-chart {
+  width: 100%;
+  position: relative;
+  max-width: none;
+  height: 400px; }
+  .float-chart canvas {
+    position: absolute !important;
+    top: 0;
+    bottom: 0; }
 
 /*-------------------------------------------------------------------*/
 /* === Sample page styles === */

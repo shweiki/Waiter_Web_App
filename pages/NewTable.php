@@ -36,15 +36,12 @@
     <!-- partial -->
 
 		<div class="page-wrapper mdc-toolbar-fixed-adjust">
-			<main style="direction: rtl;
-			    text-align: right;" class="">
+		<main class="content-wrapper drawer-minimized" style="direction: rtl; text-align: right;" >
 				<div class="mdc-layout-grid">
 					<div class="mdc-layout-grid__inner">
 
 						<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
 							<div class="mdc-card">
-
-
 								<section class="mdc-card__primary">
 									<h1 >طاولات</h1>
 								</section>
@@ -130,11 +127,12 @@ $conn->close();
 			</main>
 
 		</div>
-		</div>
+	</div>
 
-  </div>
+
 	<!-- partial:../../partials/_FOOTER.PHP -->
 	<?php include "../partials/_FOOTER.PHP"; ?>
+
 	<!-- partial -->
   <!-- body wrapper -->
   <!-- plugins:js -->

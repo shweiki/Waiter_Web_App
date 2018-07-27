@@ -1,5 +1,6 @@
-	<?php include "../../connect_restaurent.php";
+	<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	include "../../connect_restaurent.php";
 	extract($_POST);
 
   $sql = "INSERT INTO tables_ (name_table, status,num_chair,note,hall_id)
@@ -17,6 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $conn->close();
 
+}else {
+	header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
 }
 
    ?>

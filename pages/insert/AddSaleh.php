@@ -14,6 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $conn->close();
 
+}else {
+	header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
 }
 
    ?>

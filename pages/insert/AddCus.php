@@ -16,7 +16,7 @@ echo "تم اضافة s s";
 	echo "Error: " . $sql . "<br>" . $conn->error;
 }
 }else {
-header('samples/404.html');
+header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
 }
 
 
