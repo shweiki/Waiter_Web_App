@@ -1,17 +1,18 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_ID'])){
+  header('Location: http://localhost/wanter_order_app/login.php');
+        }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<?php
-//$home=$_SERVER['SERVER_NAME']."/".$_SERVER['HTTP_HOST'];
-//$home =$_SERVER['SERVER_NAME'];
-//$base_dir = __DIR__;
-//echo $base_dir;
-	include "../connect_restaurent.php"; ?>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>dashbord Admin</title>
+  <title>طاولات</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../css/materialdesignicons.min.css">
           <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -27,6 +28,10 @@
 
 <body >
   <div class="body-wrapper">
+		<?php
+
+		include "../connect_restaurent.php"; ?>
+
     <!-- partial:partials/_sidebar.html -->
     <?php include "../partials/_sidebar.php"; ?>
 
@@ -136,7 +141,7 @@ $conn->close();
 	<!-- partial -->
   <!-- body wrapper -->
   <!-- plugins:js -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
+	 <script src="../js/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
     $('#Addtable').submit(function(){
@@ -174,7 +179,7 @@ $(document).ready(function(){
 });
 </script>
   <script src="../js/material-components-web.min.js"></script>
-  <script src="../js/jquery.min.js"></script>
+
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <script src="../js/Chart.min.js"></script>

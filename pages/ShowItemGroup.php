@@ -1,16 +1,16 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_ID'])){
+  header('Location: http://localhost/wanter_order_app/login.php');
+        }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-	<?php
-  if (isset($_GET['Group_id'])) {
-   $Group_id = $_GET["Group_id"];
-      $Group_name = $_GET["name"];
-}else {
- header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
-}
-	include "../connect_restaurent.php"; ?>
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,6 +31,14 @@
 
 <body >
   <div class="body-wrapper">
+		<?php
+		if (isset($_GET['Group_id'])) {
+		 $Group_id = $_GET["Group_id"];
+				$Group_name = $_GET["name"];
+	}else {
+	 header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
+	}
+		include "../connect_restaurent.php"; ?>
     <!-- partial:partials/_sidebar.html -->
     <?php include "../partials/_sidebar.php"; ?>
 

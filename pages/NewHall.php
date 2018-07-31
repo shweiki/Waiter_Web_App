@@ -1,10 +1,15 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_ID'])){
+  header('Location: http://localhost/wanter_order_app/login.php');
+        }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<?php
-require_once('../connect_restaurent.php');
-//	include "$uri/connect_restaurent.php"; ?>
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,6 +28,9 @@ require_once('../connect_restaurent.php');
 </head>
 
 <body >
+	<?php
+require_once('../connect_restaurent.php');
+//	include "$uri/connect_restaurent.php"; ?>
   <div class="body-wrapper">
     <!-- partial:partials/_sidebar.html -->
     <?php require_once('../partials/_sidebar.php'); ?>
@@ -112,7 +120,7 @@ $conn->close();
 	<!-- partial -->
   <!-- body wrapper -->
   <!-- plugins:js -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
+<script src="../js/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
     $('#AddSalah').submit(function(){
@@ -150,7 +158,7 @@ $(document).ready(function(){
 });
 </script>
   <script src="../js/material-components-web.min.js"></script>
-  <script src="../js/jquery.min.js"></script>
+
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <script src="../js/Chart.min.js"></script>

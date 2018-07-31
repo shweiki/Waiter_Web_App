@@ -1,24 +1,13 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_ID'])){
+  header('Location: http://localhost/wanter_order_app/login.php');
+        }
 
+?>
 <html lang="en">
 <head>
-	<?php
-  if ($_SERVER["REQUEST_METHOD"] == "GET") {
-		include "../connect_restaurent.php";
-   $hall_id = $_GET["hall_id"];
-	 $sql = "SELECT * FROM hall WHERE id = $hall_id ";
- $result = $conn->query($sql);
 
- if ($result->num_rows > 0) {
- // output data of each row
- while($row = $result->fetch_assoc()) {
-$hall_name = $row["name_hall"];
-}
-}
-
-}else {
-header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
-}
-	 ?>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,7 +17,7 @@ header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
           <link rel="stylesheet" href="../css/bootstrap.min.css">
 					    <link rel="stylesheet" href="../css/filterTable.css">
 
-							<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+							  <script src="../js/jquery.min.js"></script>
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -41,6 +30,24 @@ header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
 
 <body>
   <div class="body-wrapper">
+		<?php
+		if ($_SERVER["REQUEST_METHOD"] == "GET") {
+			include "../connect_restaurent.php";
+		 $hall_id = $_GET["hall_id"];
+		 $sql = "SELECT * FROM hall WHERE id = $hall_id ";
+	 $result = $conn->query($sql);
+
+	 if ($result->num_rows > 0) {
+	 // output data of each row
+	 while($row = $result->fetch_assoc()) {
+	$hall_name = $row["name_hall"];
+	}
+	}
+
+	}else {
+	header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
+	}
+		 ?>
     <!-- partial:partials/_sidebar.html -->
     <?php include "../partials/_sidebar.php"; ?>
 

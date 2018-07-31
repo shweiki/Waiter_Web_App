@@ -9,7 +9,7 @@
 
    if ($conn->query($sql) === TRUE) {
 		 header("Location: http://localhost/wanter_order_app/pages/ShowTableHall.php?hall_id=$hall_id"); /* Redirect browser */
-		 exit();
+	
    } else {
        echo "Error: " . $sql . "<br>" . $conn->error;
    }

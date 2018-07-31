@@ -1,10 +1,15 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_ID'])){
+  header('Location: http://localhost/wanter_order_app/login.php');
+        }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<?php
-require_once('../connect_restaurent.php');
-//	include "$uri/connect_restaurent.php"; ?>
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,6 +31,9 @@ require_once('../connect_restaurent.php');
 
 <body >
   <div class="body-wrapper">
+		<?php
+	require_once('../connect_restaurent.php');
+	//	include "$uri/connect_restaurent.php"; ?>
     <!-- partial:partials/_sidebar.html -->
     <?php require_once('../partials/_sidebar.php'); ?>
 
@@ -145,11 +153,9 @@ $conn->close();
 	<!-- partial -->
   <!-- body wrapper -->
   <!-- plugins:js -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript">
 $(document).ready(function() {
-
-
     $('#AddCus').submit(function(){
 
         // show that something is loading

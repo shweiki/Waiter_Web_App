@@ -2,9 +2,11 @@
 <aside class="mdc-persistent-drawer">
       <nav class="mdc-persistent-drawer__drawer">
         <div class="mdc-persistent-drawer__toolbar-spacer">
-          <a href="../index.php" class="brand-logo">
-						<img src="../images/logo.png" alt="logo">
-					</a>
+          <a href="../index.php" class="">
+            <img src="../images/faces/face3.jpg" alt="" style="width: 55px;">
+          </a>
+          <div class="mdc-persistent-drawer__toolbar-spacer"> <?= $_SESSION['user_Name']; ?></div>
+
         </div>
         <div class="mdc-list-group">
           <nav class="mdc-list mdc-drawer-menu">

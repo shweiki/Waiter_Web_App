@@ -1,15 +1,14 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_ID'])){
+  header('Location: http://localhost/wanter_order_app/login.php');
+        }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<?php
-  if ($_SERVER["REQUEST_METHOD"] == "GET") {
-   $table_id = $_GET["table_id"];
-  $table_name = $_GET["table_name"];
-}else {
-header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
-}
-	include "../connect_restaurent.php";
-	?>
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,6 +29,15 @@ header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
 
 <body >
   <div class="body-wrapper">
+		<?php
+		if ($_SERVER["REQUEST_METHOD"] == "GET") {
+		 $table_id = $_GET["table_id"];
+		$table_name = $_GET["table_name"];
+	}else {
+	header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
+	}
+		include "../connect_restaurent.php";
+		?>
     <!-- partial:partials/_sidebar.html -->
     <?php include "../partials/_sidebar.php"; ?>
 
