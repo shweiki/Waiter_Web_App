@@ -45,24 +45,22 @@ if (!isset($_SESSION['user_ID'])){
 				<div class="mdc-layout-grid">
 					<div class="mdc-layout-grid__inner">
 
-						<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+						<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-10">
 							<div class="mdc-card">
 								<section class="mdc-card__primary">
 									<h1 >طاولات</h1>
 								</section>
-								<div class="template-demo">
-											<!-- add new table -->
-									<form class="form-inline" id="Addtable">
-		<label class="sr-only" for="inlineFormInputName2">اسم - رقم الطاولة</label>
+                				<section class="mdc-card__primary">
+                <form class="form-inline" id="Addtable">
 
-		<input type="text" name="name_table" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="ادخل اسم" required>
-	<input type="text" name="num_chair" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="عدد الكراسي" required>
-	<div class="form-group">
-<label class="sr-only" for="inlineFormInputName2">الصالة</label>
-	  <select class="form-control" name="hall_id" placeholder="الصالة"required>
 
-			<?php
-			$sql = "SELECT * FROM hall";
+  <input type="text" name="name_table" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="ادخل اسم" required>
+<input type="text" name="num_chair" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="عدد الكراسي" required>
+<div class="form-group">
+  <select class="form-control" name="hall_id" required>
+
+    <?php
+    $sql = "SELECT * FROM hall";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -80,15 +78,18 @@ echo "لا يوجد شيئ لعرض ........ <i class='mdi mdi-heart text-red'><
 }
 ?>
 
-	  </select>
-	</div>
-		<label class="sr-only" for="inlineFormInputGroupUsername2">ملاحظات</label>
-		<div class="mb-2 mr-sm-2">
-			<input type="text" name="note" class="form-control " id="inlineFormInputGroupUsername2" placeholder="ادخل ملاحظاتك" >
-		</div>
-		<button type="submit" class="btn btn-success mb-2 mx-auto">إضافة</button>
-	</form>
-	<div class="" id='response'></div>
+  </select>
+</div>
+  <label class="sr-only" for="inlineFormInputGroupUsername2">ملاحظات</label>
+  <div class="mb-2 mr-sm-2">
+    <input type="text" name="note" class="form-control " id="inlineFormInputGroupUsername2" placeholder="ادخل ملاحظاتك" >
+  </div>
+  <button type="submit" class="btn btn-success mb-2 ">إضافة</button>
+</form>
+<div class="" id='response'></div>
+		</section>
+								<div class="template-demo ">
+											<!-- add new table -->
 									<table class="table table-hoverable">
 										<thead class="font-weight-bold">
 											<tr>
@@ -100,7 +101,7 @@ echo "لا يوجد شيئ لعرض ........ <i class='mdi mdi-heart text-red'><
 										</thead>
 										<tbody>
 											<?php
-											$sql = "SELECT * FROM tables_";
+											$sql = "SELECT t.name_table , t.num_chair , h.name_hall , t.note  FROM tables_ t , hall h where h.id = t.hall_id ";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -110,7 +111,7 @@ if ($result->num_rows > 0) {
 			<tr>
 				<td class=""><?php echo $row["name_table"]; ?></td>
         	    <td><?php echo $row["num_chair"]; ?></td>
-				      <td><?php echo $row["hall_id"]; ?></td>
+				      <td><?php echo $row["name_hall"]; ?></td>
 	            <td><?php echo $row["note"]; ?></td>
 			</tr>
 			<?php

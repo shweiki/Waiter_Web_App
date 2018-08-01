@@ -132,7 +132,7 @@ if (!isset($_SESSION['user_ID'])){
 
 </div>
 
-								<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+								<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-10">
 									<div class="mdc-card table-responsive">
 										<div class="table-heading px-2 px-1 border-bottom">
 											<h1 class="mdc-card__title mdc-card__title--large">الحجزات</h1>
@@ -140,30 +140,55 @@ if (!isset($_SESSION['user_ID'])){
 										<table class="table">
 											<thead>
 												<tr>
-													<th class="text-left">اسم العميل</th>
-													<th>Cost</th>
-													<th>Sales amount</th>
-													<th>Shipping cost</th>
-													<th>Units sold</th>
-													<th>Profit generated</th>
-													<th>Left in stock</th>
-													<th>Returns</th>
-													<th>Actions</th>
+													<th >اسم العميل</th>
+													<th>الطاولة </th>
+													<th>تاريخ</th>
+													<th>المبلغ</th>
+													<th>بيانات</th>
+													<th>#</th>
+
 												</tr>
 											</thead>
 											<tbody>
+                        <?php
+                        $sql = "SELECT c.FullName , c.Num_Ph , c.Date_log  , o.total_amount , t.name_table
+                         FROM booking b, customers c  , orders o  , tables_ t
+                        where c.id=  b.cus_id
+                        and o.Book_id = b.id
+                        and t.id = b.table_id
+                        ";
+
+                  $result = $conn->query($sql);
+                  if (!$result) {
+         printf("Errormessage: %s\n", $mysqli->error);
+      }
+
+                        while($row = mysqli_fetch_assoc($result)) {
+                  ?>
 												<tr>
-													<td class="text-left">T-shirts</td>
-													<td>250</td>
-													<td>300</td>
-													<td>60</td>
-													<td>3453</td>
-													<td>76</td>
-													<td>453643</td>
-													<td>300</td>
-													<td><div class="col mdc-button" data-mdc-auto-init="MDCRipple"><i class="mdi mdi-heart text-blue"></i></div><div class="col mdc-button" data-mdc-auto-init="MDCRipple"><i class="mdi mdi-forum text-yellow"></i></div><div class="col mdc-button" data-mdc-auto-init="MDCRipple"><i class="mdi mdi-delete text-red"></i></div></td>
+													<td ><?= $row['FullName']; ?></td>
+													<td><?= $row['name_table']; ?></td>
+													<td><?= $row['Date_log']; ?></td>
+													<td><?= $row['total_amount']; ?></td>
+													<td><?= $row['Num_Ph']; ?></td>
+
+													<td>
+                            <div class="col mdc-button" data-mdc-auto-init="MDCRipple">
+                            <i class="mdi mdi-heart text-blue"></i>
+                          </div>
+                          <div class="col mdc-button" data-mdc-auto-init="MDCRipple">
+                            <i class="mdi mdi-forum text-yellow"></i>
+                          </div>
+                            <div class="col mdc-button" data-mdc-auto-init="MDCRipple"><i class="mdi mdi-delete text-red"></i>
+                            </div>
+                          </td>
 												</tr>
-							
+                        <?php
+
+
+                        }
+                                            ?>
+
 												</tbody>
 											</table>
 									</div>

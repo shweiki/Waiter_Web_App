@@ -52,7 +52,7 @@ if (isset($_SESSION['user_ID']) && !empty($_SESSION['user_Name'])){
             						</div>
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12" style="direction: rtl;">
                           <label class="mdc-text-field w-100">
-                            <input type="text" class="mdc-text-field__input" id="user_password" name="user_password" required>
+                            <input type="password" class="mdc-text-field__input" id="user_password" name="user_password" required>
                             <span class="mdc-text-field__label" style="right: 0;">كلمة المرور</span>
                             <div class="mdc-text-field__bottom-line"></div>
                           </label>

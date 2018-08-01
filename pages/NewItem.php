@@ -13,7 +13,7 @@ if (!isset($_SESSION['user_ID'])){
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>dashbord Admin</title>
+  <title>اصناف و مواد</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../css/materialdesignicons.min.css">
           <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -76,19 +76,19 @@ if (!isset($_SESSION['user_ID'])){
 				<div class="mdc-layout-grid">
 					<div class="mdc-layout-grid__inner">
 
-						<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+						<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-10">
 							<div class="mdc-card">
 
 
 								<section class="mdc-card__primary">
 									<h1 >مواد واصناف</h1>
 								</section>
-								<div class="template-demo">
+								<div class="template-demo ">
 											<!-- add new table -->
-									<form class="form-horizontal " method="POST" enctype="multipart/form-data" id="AddItem">
+									<form class="form-horizontal col-6 " method="POST" enctype="multipart/form-data" id="AddItem">
 
-										<div class="form-group">
-										  <select class="form-control" name="group_items_id" placeholder="المجموعة"required>
+										<div class="form-group col-3">
+										  <select class="form-control" name="group_items_id" placeholder="المجموعة" required>
 												<?php
 												$sql = "SELECT * FROM group_items";
 									$result = $conn->query($sql);
@@ -108,18 +108,22 @@ if (!isset($_SESSION['user_ID'])){
 									}
 									?>
 										  </select>
-
-
+ <select class="form-control" name="unit" placeholder="الوحدة" required>
+   <option value="وجبة" >وجبة   </option>
+      <option value="سندوش" >
+سندوش
+      </option>
+      <option value="سكوب" >
+سكوب
+      </option>
+ </select>
 												</div>
-												<div class="form-group">
-													<input  type="text" name="unit" class="form-control" id="formGroupExampleInput" placeholder="الوحدة">
-												</div>
 
-										<div class="form-group">
-									    <input  type="text" name="name_item" class="form-control" id="formGroupExampleInput" placeholder="اسم الصنف">
+										<div class="form-group col-5">
+									    <input  type="text" name="name_item" class="form-control" id="formGroupExampleInput" placeholder="اسم الصنف" required>
 									  </div>
 
-
+	<div class="form-group col-7">
 		<div class="input-group">
 			<div class="input-group-append">
 				<span class="input-group-text">00.</span>
@@ -133,15 +137,14 @@ if (!isset($_SESSION['user_ID'])){
 				<span class="input-group-text">00.</span>
 			</div>
 
-				<input type="text" name="sale_price"  class="form-control col-sm-2" aria-label="" placeholder="البيع">
+				<input type="text" name="sale_price"  class="form-control col-sm-2" aria-label="" placeholder="البيع" required>
 				<div class="input-group-prepend">
 					<span class="input-group-text">$</span>
 				</div>
 
 		</div>
-
-</br>
-		<div class="form-group col-sm-10">
+</div>
+		<div class="form-group col-sm-6">
 				<!-- image-preview-filename input [CUT FROM HERE]-->
 				<div class="input-group image-preview">
 						<input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
@@ -159,12 +162,17 @@ if (!isset($_SESSION['user_ID'])){
 						</span>
 				</div><!-- /input-group image-preview [TO HERE]-->
 		</div>
-		<div class="form-group">
+
+
+		<div class="form-group col-5">
 			<input type="text" name="note" class="form-control " id="inlineFormInputGroupUsername2" placeholder="ادخل ملاحظاتك" >
 		</div>
-		<button type="submit" class="btn btn-success mb-2 mx-auto">إضافة</button>
+		<button type="submit" class="btn btn-success col-6">إضافة</button>
+    <br>
 	</form>
 	<div class="" id='response'></div>
+    <br>
+
 									<table class="table table-hoverable">
 										<thead class="font-weight-bold">
 											<tr>
@@ -187,11 +195,11 @@ if ($result->num_rows > 0) {
 			?>
 			<tr>
 				<td><img class="rounded" height="50" width="50"  src="data:image;base64,<?php echo $row['img_url']; ?>"></td>
-        	    <td><?php echo $row["name_item"]; ?></td>
-				      <td><?php echo $row["group_items_id"]; ?></td>
-							  <td><?php echo $row["cost_price"]; ?></td>
-								 <td><?php echo $row["sale_price"]; ?></td>
-	            <td><?php echo $row["note"]; ?></td>
+        	    <td><?= $row["name_item"]; ?></td>
+				      <td><?= $row["group_items_id"]; ?></td>
+							  <td><?= $row["cost_price"]; ?></td>
+								 <td><?= $row["sale_price"]; ?></td>
+	            <td><?= $row["note"]; ?></td>
 			</tr>
 			<?php
     }

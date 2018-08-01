@@ -45,11 +45,8 @@ if (!isset($_SESSION['user_ID'])){
 					<main class="content-wrapper drawer-minimized" style="direction: rtl; text-align: right;" >
 				<div class="mdc-layout-grid">
 					<div class="mdc-layout-grid__inner">
-
-						<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+						<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-10">
 							<div class="mdc-card">
-
-
 								<section class="mdc-card__primary">
 									<h1 >المجموعات الاصناف</h1>
 								</section>
@@ -72,13 +69,13 @@ if (!isset($_SESSION['user_ID'])){
    </select>
 			<input type="text" name="note" class="form-control " id="inlineFormInputGroupUsername2" placeholder="ادخل ملاحظاتك" required>
 		</div>
-		<button type="submit" class="btn btn-success mb-2 mx-auto">إضافة</button>
+    <button type="submit" class="btn btn-success mb-2 ">إضافة</button>
 	</form>
 	<div class="" id='response'></div>
 									<table class="table table-hoverable">
 										<thead class="font-weight-bold">
 											<tr>
-												<th class=""> اسم المجموعة</th>
+												<th> اسم المجموعة</th>
                         	<th>نوع المجموعة</th>
 												<th>ملاحظات</th>
 												<th>#</th>
@@ -95,10 +92,10 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 			?>
 			<tr>
-				<td class=""><?php echo $row["name"]; ?></td>
-        <td><?php echo $row["type"]; ?></td>
-				<td><?php echo $row["note"]; ?></td>
-				<td><a href="../pages/ShowItemGroup.php?Group_id=<?php echo $row['id']; ?>&name=<?php echo $row['name']; ?>" class="btn btn-info">مواد</a></td>
+				<td><? $row["name"]; ?></td>
+        <td><?= $row["type"]; ?></td>
+				<td><?= $row["note"]; ?></td>
+				<td><a href="../pages/ShowItemGroup.php?Group_id=<?= $row['id']; ?>&name=<?php echo $row['name']; ?>" class="btn btn-info">مواد</a></td>
 				<td><button type="button" class="btn btn-danger">حذف</button></td>
 			</tr>
 			<?php

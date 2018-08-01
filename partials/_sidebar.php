@@ -112,7 +112,7 @@
               </div>
             </div>
             <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link" href="../pages/samples/register.php">
+              <a class="mdc-drawer-link" href="../pages/register.php">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">accessibility</i>
                 انشاء مستخدم جديد
               </a>

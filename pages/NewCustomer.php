@@ -48,20 +48,22 @@ if (!isset($_SESSION['user_ID'])){
 				<div class="mdc-layout-grid">
 					<div class="mdc-layout-grid__inner">
 
-						<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+						<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-10">
 							<div class="mdc-card">
 
 
 								<section class="mdc-card__primary">
 									<h1 >زبائن</h1>
 								</section>
-
+              	<section class="mdc-card__primary">
+<div class="col-3">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="<?= $row['id']; ?>">اضافة زبون</button>
+<div class="" id='response'></div>
+</div>
+	</section>
 								<div class="template-demo">
 											<!-- add new saleh -->
-                      <div class="container">
-	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="<?= $row['id']; ?>">اضافة زبون</button>
-	<div class="" id='response'></div>
-  </div>
+
 									<table class="table table-hoverable">
 										<thead class="font-weight-bold">
 											<tr>
@@ -153,7 +155,7 @@ $conn->close();
 	<!-- partial -->
   <!-- body wrapper -->
   <!-- plugins:js -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="../js/jquery.min.js"></script>
   <script type="text/javascript">
 $(document).ready(function() {
     $('#AddCus').submit(function(){
@@ -192,7 +194,7 @@ window.location.reload(true);
   </script>
 
   <script src="../js/material-components-web.min.js"></script>
-  <script src="../js/jquery.min.js"></script>
+
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <script src="../js/Chart.min.js"></script>

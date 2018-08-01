@@ -46,7 +46,7 @@ require_once('../connect_restaurent.php');
 				<div class="mdc-layout-grid">
 					<div class="mdc-layout-grid__inner">
 
-						<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+						<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-10">
 							<div class="mdc-card">
 
 
@@ -65,9 +65,10 @@ require_once('../connect_restaurent.php');
 		<div class="mb-2 mr-sm-2">
 			<input type="text" name="note" class="form-control " id="inlineFormInputGroupUsername2" placeholder="ادخل ملاحظاتك" required>
 		</div>
-		<button type="submit" class="btn btn-success mb-2 mx-auto">إضافة</button>
+		<button type="submit" class="btn btn-success mb-2 ">إضافة</button>
 	</form>
 	<div class="" id='response'></div>
+
 									<table class="table table-hoverable">
 										<thead class="font-weight-bold">
 											<tr>

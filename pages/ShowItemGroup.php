@@ -14,7 +14,7 @@ if (!isset($_SESSION['user_ID'])){
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title> <?php echo $Group_name; ?></title>
+  <title> اصناف المجمواعات</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../css/materialdesignicons.min.css">
           <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -47,12 +47,17 @@ if (!isset($_SESSION['user_ID'])){
    <?php include "../partials/_navbar.php"; ?>
     <!-- partial -->
 
-		<div class="page-wrapper mdc-toolbar-fixed-adjust">
+    <div class="page-wrapper mdc-toolbar-fixed-adjust">
 		<main class="content-wrapper drawer-minimized" style="direction: rtl; text-align: right;" >
+				<div class="mdc-layout-grid">
+					<div class="mdc-layout-grid__inner">
 
-          <div class="container">
-            	<h3><?php echo $Group_name; ?></h3>
-        <div class="row">
+						<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-10">
+							<div class="mdc-card">
+                <section class="mdc-card__primary">
+                  <h1 ><?= $Group_name; ?></h1>
+                </section>
+      <div class="template-demo ">
           <table class="table table-hoverable">
             <thead class="font-weight-bold">
               <tr>
@@ -92,12 +97,16 @@ $conn->close();
             </tbody>
           </table>
     </div>
-      </div>
-			</main>
 
-		</div>
-		</div>
+    </div>
+  </div>
 
+</div>
+</div>
+</main>
+
+</div>
+</div>
 
 	<!-- partial:../../partials/_FOOTER.PHP -->
 	<?php include "../partials/_FOOTER.PHP"; ?>
