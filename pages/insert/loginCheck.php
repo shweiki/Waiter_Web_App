@@ -14,7 +14,7 @@ while($row = $result->fetch_assoc()) {
 $_SESSION["user_ID"] = $row['id'];
 $_SESSION["user_Name"] = $row['full_name'];
 }
-    echo "<script>window.location='http://localhost/wanter_order_app/pages/dashbord.php';</script>";
+    echo "<script>window.location='http://" . $_SERVER['SERVER_NAME'] ."/wanter_order_app/pages/dashbord.php';</script>";
 
 
 }
@@ -22,7 +22,7 @@ $_SESSION["user_Name"] = $row['full_name'];
       echo "اسم المستخدم او كلمة المرور خطأ ..";
   }
 }else {
-  header("Location: http://localhost/wanter_order_app/pages/samples/404.html");
+header('Location: http://'. $_SERVER["SERVER_NAME"].'/wanter_order_app/pages/samples/404.html');
 }
 
 $conn->close();

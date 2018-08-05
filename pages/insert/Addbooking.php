@@ -15,7 +15,7 @@ if ($conn->query($sql) === TRUE) {
 	 WHERE id= $Table_id";
 
 	if ($conn->query($sql) === TRUE) {
-  header("Location: http://localhost/wanter_order_app/pages/ShowTableHall.php?hall_id=$hall_id");
+  header("Location: http://". $_SERVER['SERVER_NAME']."/wanter_order_app/pages/ShowTableHall.php?hall_id=$hall_id");
 	} else {
 			echo "Error: " . $sql . "<br>" . $conn->error;
 	}
@@ -24,7 +24,7 @@ if ($conn->query($sql) === TRUE) {
  	echo "Error: " . $sql . "<br>" . $conn->error;
 }
 }else {
-header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
+header('Location: http://'. $_SERVER["SERVER_NAME"].'/wanter_order_app/pages/samples/404.html');
 }
 
    ?>

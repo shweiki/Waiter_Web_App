@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_ID'])){
-  header('Location: http://localhost/wanter_order_app/login.php');
+    header('Location: http://'.$_SERVER["SERVER_NAME"].'/wanter_order_app/login.php');
         }
 
 ?>
@@ -36,14 +36,9 @@ if (!isset($_SESSION['user_ID'])){
 		 $hall_id = $_GET["hall_id"];
 		 $sql = "SELECT * FROM hall WHERE id = $hall_id ";
 	 $result = $conn->query($sql);
-
-	 if ($result->num_rows > 0) {
+$row = mysqli_fetch_assoc($result);
 	 // output data of each row
-	 while($row = $result->fetch_assoc()) {
 	$hall_name = $row["name_hall"];
-	}
-	}
-
 	}else {
 	header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
 	}

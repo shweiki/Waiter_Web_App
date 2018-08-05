@@ -16,12 +16,12 @@ $time_log = date("Y-m-d h:i:sa");
 
 		// destroy the session
 		session_destroy();
-  echo "<script>window.location='http://localhost/wanter_order_app/login.php';</script>";
+  echo "<script>window.location='". $_SERVER['SERVER_NAME']."/wanter_order_app/login.php';</script>";
 }else {
 	echo "Error: " . $sql . "<br>" . $conn->error;
 }
 }else {
-header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
+header('Location: http://'. $_SERVER["SERVER_NAME"].'/wanter_order_app/pages/samples/404.html');
 }
 
 

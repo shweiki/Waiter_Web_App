@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_ID'])){
-  header('Location: http://localhost/wanter_order_app/login.php');
+    header('Location: http://'.$_SERVER["SERVER_NAME"].'/wanter_order_app/login.php');
         }
 
 ?>
@@ -13,7 +13,7 @@ if (!isset($_SESSION['user_ID'])){
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>الصالات</title>
+  <title>زبائن</title>
 
   <!-- plugins:css -->
   <link rel="stylesheet" href="../css/materialdesignicons.min.css">
@@ -33,6 +33,19 @@ if (!isset($_SESSION['user_ID'])){
   <div class="body-wrapper">
 		<?php
 	require_once('../connect_restaurent.php');
+  // Delete Customer where id
+if (isset($_GET['CusIdDeleted'])) {
+$Cus_id = $_GET["CusIdDeleted"];
+$sql = "DELETE FROM customers WHERE id =$Cus_id ";
+
+if ($conn->query($sql) === TRUE) {
+  $script="$('#ShowAlertQYN').click();";
+}else {
+    $script="$('#Error').click();";
+}
+}else {
+  $script="";
+}
 	//	include "$uri/connect_restaurent.php"; ?>
     <!-- partial:partials/_sidebar.html -->
     <?php require_once('../partials/_sidebar.php'); ?>
@@ -84,11 +97,11 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 			?>
 			<tr>
-				<td class=""><?= $row["FullName"]; ?></td>
+				<td><?= $row["FullName"]; ?></td>
 				<td><?= $row["Num_Ph"]; ?></td>
         <td><?= $row["Note"]; ?></td>
 				<td><?= $row["Date_log"]; ?></td>
-				<td><button type="button" class="btn btn-danger">حذف</button></td>
+				<td><a href="?CusIdDeleted=<?= $row['id'];?>"><button type="button" class="btn btn-danger">حذف</button></td></a>
 			</tr>
 			<?php
     }
@@ -101,6 +114,8 @@ $conn->close();
 										</tbody>
 									</table>
 								</div>
+
+
 							</div>
 						</div>
 
@@ -140,7 +155,7 @@ $conn->close();
 
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+          <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
           <button type="submit" class="btn btn-primary"> حفظ</button>
            </form>
         </div>
@@ -149,8 +164,9 @@ $conn->close();
  </div>
     </div>
 
+
 	<!-- partial:../../partials/_FOOTER.PHP -->
-	<?php require_once('../partials/_FOOTER.PHP'); ?>
+	<?php require_once('../partials/_FOOTER.PHP');?>
 
 	<!-- partial -->
   <!-- body wrapper -->
@@ -158,6 +174,7 @@ $conn->close();
   <script src="../js/jquery.min.js"></script>
   <script type="text/javascript">
 $(document).ready(function() {
+<?=  $script;?>
     $('#AddCus').submit(function(){
 
         // show that something is loading
@@ -174,10 +191,14 @@ $(document).ready(function() {
             data: $(this).serialize()
         })
         .done(function(data){
-
             // show the response
-            $('#response').html(data);
-window.location.reload(true);
+          //  $('#response').html(data);
+           $("#close").click();
+             $('#response').html("");
+            $('tbody').append(data);
+ $("#ShowAlert").click();
+    //  showSwal();
+
         })
         .fail(function() {
 
@@ -199,6 +220,12 @@ window.location.reload(true);
   <!-- Plugin js for this page-->
   <script src="../js/Chart.min.js"></script>
   <script src="../js/progressbar.min.js"></script>
+  <script src="../js/sweetalert.min.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<!-- End plugin js for this page-->
+<!-- inject:js -->
+<script src="../js/alerts.js"></script>
   <!-- End plugin js for this page-->
   <!-- inject:js -->
   <script src="../js/misc.js"></script>
@@ -210,6 +237,15 @@ window.location.reload(true);
       <script src="../js/bootstrap.bundle.min.js"></script>
 
   <!-- End custom js for this page-->
+  <button hidden id="ShowAlert" class="mdc-button mdc-button--raised mdc-ripple-upgraded" data-mdc-auto-init="MDCRipple" onclick="showSwal('success-message')" style="--mdc-ripple-fg-size:44.775px; --mdc-ripple-fg-scale:2.07381; --mdc-ripple-fg-translate-start:2.3625px, -12.5437px; --mdc-ripple-fg-translate-end:14.925px, -4.3875px;">
+            show
+          </button>
+          <button hidden  id="ShowAlertQYN" class="mdc-button mdc-button--raised mdc-ripple-upgraded" data-mdc-auto-init="MDCRipple" onclick="showSwal('auto-close')" style="--mdc-ripple-fg-size:44.775px; --mdc-ripple-fg-scale:2.07381; --mdc-ripple-fg-translate-start:-1.6375px, -9.7px; --mdc-ripple-fg-translate-end:14.925px, -4.3875px;">
+                        are y sure
+                      </button>
+                      <button hidden  id="Error" class="mdc-button mdc-button--raised mdc-ripple-upgraded" data-mdc-auto-init="MDCRipple" onclick="showSwal('basic')" style="--mdc-ripple-fg-size:44.775px; --mdc-ripple-fg-scale:2.07381; --mdc-ripple-fg-translate-start:0.6125px, -12.5437px; --mdc-ripple-fg-translate-end:14.925px, -4.3875px;">
+                      Show
+                    </button>
 </body>
 
 </html>

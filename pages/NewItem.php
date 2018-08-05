@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_ID'])){
-  header('Location: http://localhost/wanter_order_app/login.php');
+    header('Location: http://'.$_SERVER["SERVER_NAME"].'/wanter_order_app/login.php');
         }
 
 ?>
@@ -26,13 +26,10 @@ if (!isset($_SESSION['user_ID'])){
   <!-- endinject -->
   <link rel="shortcut icon" href="../images/favicon.png" />
   <style type="text/css">
-	.col-sm-10 ,.input-group, .custom-file, .input-group ,.custom-select, .input-group, .form-control ,.col-sm-2 {
-    position: unset;
-	}
-	.input-group>.custom-file, .input-group>.custom-select, .input-group>.form-control {
-    position: unset;
-	}
-
+.form-group{
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
   .image-preview-input {
       position: relative;
   	overflow: hidden;
@@ -85,10 +82,28 @@ if (!isset($_SESSION['user_ID'])){
 								</section>
 								<div class="template-demo ">
 											<!-- add new table -->
-									<form class="form-horizontal col-6 " method="POST" enctype="multipart/form-data" id="AddItem">
-
-										<div class="form-group col-3">
-										  <select class="form-control" name="group_items_id" placeholder="المجموعة" required>
+									<form class="form-inline col-8 " method="POST" enctype="multipart/form-data" id="AddItem">
+<div class="row">
+  <div class="form-group col-8">
+      <!-- image-preview-filename input [CUT FROM HERE]-->
+      <div class="input-group image-preview">
+          <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+          <span class="input-group-btn">
+              <!-- image-preview-clear button -->
+              <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                  <span class="glyphicon glyphicon-remove"></span> مسح
+              </button>
+              <!-- image-preview-input -->
+              <div class="btn btn-default image-preview-input">
+                  <span class="glyphicon glyphicon-folder-open"></span>
+                  <span class="image-preview-input-title">صورة</span>
+                  <input  type="file"  accept="image/png, image/jpeg, image/gif" name="img_blog" id="img_blog" /> <!-- rename it -->
+              </div>
+          </span>
+      </div><!-- /input-group image-preview [TO HERE]-->
+  </div>
+										<div class="form-group col-8">
+										  <select class="form-control col-2" name="group_items_id"  required>
 												<?php
 												$sql = "SELECT * FROM group_items";
 									$result = $conn->query($sql);
@@ -97,8 +112,8 @@ if (!isset($_SESSION['user_ID'])){
 									// output data of each row
 									while($row = $result->fetch_assoc()) {
 									?>
-									<option value=<?php echo $row["id"]; ?>>
-									<?php echo $row["name"]; ?>
+									<option value=<?= $row["id"]; ?>>
+									<?= $row["name"]; ?>
 									</option>
 									<?php
 									}
@@ -108,7 +123,7 @@ if (!isset($_SESSION['user_ID'])){
 									}
 									?>
 										  </select>
- <select class="form-control" name="unit" placeholder="الوحدة" required>
+ <select class="form-control col-2" name="unit"  required>
    <option value="وجبة" >وجبة   </option>
       <option value="سندوش" >
 سندوش
@@ -117,13 +132,11 @@ if (!isset($_SESSION['user_ID'])){
 سكوب
       </option>
  </select>
+ <div class="form-group col-4">
+   <input  type="text" name="name_item" class="form-control" id="formGroupExampleInput" placeholder="اسم الصنف" required>
+ </div>
 												</div>
-
-										<div class="form-group col-5">
-									    <input  type="text" name="name_item" class="form-control" id="formGroupExampleInput" placeholder="اسم الصنف" required>
-									  </div>
-
-	<div class="form-group col-7">
+	<div class="form-group col-8">
 		<div class="input-group">
 			<div class="input-group-append">
 				<span class="input-group-text">00.</span>
@@ -144,32 +157,17 @@ if (!isset($_SESSION['user_ID'])){
 
 		</div>
 </div>
-		<div class="form-group col-sm-6">
-				<!-- image-preview-filename input [CUT FROM HERE]-->
-				<div class="input-group image-preview">
-						<input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
-						<span class="input-group-btn">
-								<!-- image-preview-clear button -->
-								<button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-										<span class="glyphicon glyphicon-remove"></span> مسح
-								</button>
-								<!-- image-preview-input -->
-								<div class="btn btn-default image-preview-input">
-										<span class="glyphicon glyphicon-folder-open"></span>
-										<span class="image-preview-input-title">صورة</span>
-										<input  type="file"  accept="image/png, image/jpeg, image/gif" name="img_blog" id="img_blog" /> <!-- rename it -->
-								</div>
-						</span>
-				</div><!-- /input-group image-preview [TO HERE]-->
-		</div>
 
 
-		<div class="form-group col-5">
+
+		<div class="form-group col-8">
 			<input type="text" name="note" class="form-control " id="inlineFormInputGroupUsername2" placeholder="ادخل ملاحظاتك" >
 		</div>
+<div class="form-group col-8">
 		<button type="submit" class="btn btn-success col-6">إضافة</button>
-    <br>
-	</form>
+</div>
+    </div>
+    	</form>
 	<div class="" id='response'></div>
     <br>
 

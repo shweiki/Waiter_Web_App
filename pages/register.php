@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_ID'])){
-  header('Location: http://localhost/wanter_order_app/login.php');
+    header('Location: http://'.$_SERVER["SERVER_NAME"].'/wanter_order_app/login.php');
         }
 
 ?>
@@ -92,6 +92,7 @@ if (!isset($_SESSION['user_ID'])){
                           <button type="submit" class="mdc-button mdc-button--raised w-100" data-mdc-auto-init="MDCRipple">
                             تسجيل
                           </button>
+
                         </div>
             					</div>
             				</div>
@@ -128,7 +129,7 @@ $(document).ready(function() {
 
             // show the response
             $('#response').html(data);
-            
+
 
         })
         .fail(function() {
@@ -148,14 +149,17 @@ $(document).ready(function() {
   <!-- plugins:js -->
   <script src="../js/material-components-web.min.js"></script>
   <script src="../js/jquery.min.js"></script>
+    <script src="../js/sweetalert.min.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <!-- End plugin js for this page-->
   <!-- inject:js -->
+  <script src="../js/alerts.js"></script>
 	<script src="../js/misc.js"></script>
 	<script src="../js/material.js"></script>
 	<!-- endinject -->
   <!-- Custom js for this page-->
+
   <!-- End custom js for this page-->
 </body>
 

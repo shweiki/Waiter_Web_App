@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_ID'])){
-  header('Location: http://localhost/wanter_order_app/login.php');
+    header('Location: http://'.$_SERVER["SERVER_NAME"].'/wanter_order_app/login.php');
         }
 
 ?>
@@ -32,13 +32,19 @@ if (!isset($_SESSION['user_ID'])){
 <body >
   <div class="body-wrapper">
 		<?php
+    include "../connect_restaurent.php";
 		if (isset($_GET['Group_id'])) {
 		 $Group_id = $_GET["Group_id"];
-				$Group_name = $_GET["name"];
+     $sql = "SELECT * FROM group_items WHERE id = $Group_id ";
+   $result = $conn->query($sql);
+$row = mysqli_fetch_assoc($result);
+   // output data of each row
+  $Group_name = $row["name"];
 	}else {
 	 header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
 	}
-		include "../connect_restaurent.php"; ?>
+
+		 ?>
     <!-- partial:partials/_sidebar.html -->
     <?php include "../partials/_sidebar.php"; ?>
 
@@ -80,11 +86,11 @@ while($row = $result->fetch_assoc()) {
 ?>
 <tr>
 <td><img height='30' width='30' src="data:image;base64,<?php echo $row['img_url']; ?>"></td>
-      <td><?php echo $row["name_item"]; ?></td>
-      <td><?php echo $row["group_items_id"]; ?></td>
-        <td><?php echo $row["cost_price"]; ?></td>
-         <td><?php echo $row["sale_price"]; ?></td>
-      <td><?php echo $row["note"]; ?></td>
+      <td><?= $row["name_item"]; ?></td>
+      <td><?= $row["group_items_id"]; ?></td>
+        <td><?= $row["cost_price"]; ?></td>
+         <td><?= $row["sale_price"]; ?></td>
+      <td><?= $row["note"]; ?></td>
 </tr>
 <?php
 }

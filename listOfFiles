@@ -100,6 +100,7 @@ js/material.js
 js/materialdesignicons.min.css
 js/misc.js
 js/progressbar.min.js
+listOfFiles
 login.php
 pages/NewCustomer.php
 pages/NewGroupItem.php
@@ -117,17 +118,18 @@ pages/insert/AddGroupItem.php
 pages/insert/AddItem.php
 pages/insert/AddSaleh.php
 pages/insert/AddTable.php
+pages/insert/AddUser.php
 pages/insert/Addbooking.php
 pages/insert/CancelBooking.php
 pages/insert/EndTable.php
 pages/insert/loginCheck.php
 pages/insert/logout.php
+pages/register.php
 pages/samples/403.html
 pages/samples/404.html
 pages/samples/500.html
 pages/samples/505.html
 pages/samples/blank-page.html
-pages/samples/register.php
 pages/ui-features/buttons.html
 pages/ui-features/tables.html
 pages/ui-features/typography.html

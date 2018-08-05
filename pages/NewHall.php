@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_ID'])){
-  header('Location: http://localhost/wanter_order_app/login.php');
+    header('Location: http://'.$_SERVER["SERVER_NAME"].'/wanter_order_app/login.php');
         }
 
 ?>
@@ -30,6 +30,17 @@ if (!isset($_SESSION['user_ID'])){
 <body >
 	<?php
 require_once('../connect_restaurent.php');
+if (isset($_GET['HallIdDeleted'])) {
+$_hall_Id = $_GET["HallIdDeleted"];
+$sql = "DELETE FROM hall WHERE id =$_hall_Id ";
+if ($conn->query($sql) === TRUE) {
+  $script="$('#ShowAlertQYN').click();";
+}else {
+    $script="$('#Error').click();";
+}
+}else {
+  $script=" ";
+}
 //	include "$uri/connect_restaurent.php"; ?>
   <div class="body-wrapper">
     <!-- partial:partials/_sidebar.html -->
@@ -88,10 +99,10 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 			?>
 			<tr>
-				<td class=""><?php echo $row["name_hall"]; ?></td>
-				<td><?php echo $row["note"]; ?></td>
-				<td><a href="../pages/ShowTableHall.php?hall_id=<?php echo $row['id']; ?>&name=<?php echo $row['name_hall']; ?>" class="btn btn-info">طاولات</a></td>
-				<td><button type="button" class="btn btn-danger">حذف</button></td>
+				<td><?= $row["name_hall"]; ?></td>
+				<td><?= $row["note"]; ?></td>
+				<td><a href="../pages/ShowTableHall.php?hall_id=<?= $row['id']; ?>&name=<?= $row['name_hall']; ?>" class="btn btn-info">طاولات</a></td>
+				<td><a href="?HallIdDeleted=<?= $row['id'];?>"><button type="button" class="btn btn-danger">حذف</button></td></a>
 			</tr>
 			<?php
     }
@@ -124,6 +135,7 @@ $conn->close();
 <script src="../js/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
+  <?=  $script; ?>
     $('#AddSalah').submit(function(){
 
         // show that something is loading
@@ -142,8 +154,10 @@ $(document).ready(function(){
         .done(function(data){
 
             // show the response
-            $('#response').html(data);
-
+          //  $('#response').html(data);
+          $('#response').html("");
+         $('tbody').append(data);
+$("#ShowAlert").click();
         })
         .fail(function() {
 
@@ -158,21 +172,38 @@ $(document).ready(function(){
     });
 });
 </script>
-  <script src="../js/material-components-web.min.js"></script>
+<script src="../js/material-components-web.min.js"></script>
 
-  <!-- endinject -->
-  <!-- Plugin js for this page-->
-  <script src="../js/Chart.min.js"></script>
-  <script src="../js/progressbar.min.js"></script>
-  <!-- End plugin js for this page-->
-  <!-- inject:js -->
-  <script src="../js/misc.js"></script>
-  <script src="../js/material.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
-  <script src="../js/dashboard.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-      <script src="../js/bootstrap.bundle.min.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<script src="../js/Chart.min.js"></script>
+<script src="../js/progressbar.min.js"></script>
+<script src="../js/sweetalert.min.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<!-- End plugin js for this page-->
+<!-- inject:js -->
+<script src="../js/alerts.js"></script>
+<!-- End plugin js for this page-->
+<!-- inject:js -->
+<script src="../js/misc.js"></script>
+<script src="../js/material.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<script src="../js/dashboard.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+      <button hidden id="ShowAlert" class="mdc-button mdc-button--raised mdc-ripple-upgraded" data-mdc-auto-init="MDCRipple" onclick="showSwal('success-message')" style="--mdc-ripple-fg-size:44.775px; --mdc-ripple-fg-scale:2.07381; --mdc-ripple-fg-translate-start:2.3625px, -12.5437px; --mdc-ripple-fg-translate-end:14.925px, -4.3875px;">
+                show
+              </button>
+              <button hidden  id="ShowAlertQYN" class="mdc-button mdc-button--raised mdc-ripple-upgraded" data-mdc-auto-init="MDCRipple" onclick="showSwal('auto-close')" style="--mdc-ripple-fg-size:44.775px; --mdc-ripple-fg-scale:2.07381; --mdc-ripple-fg-translate-start:-1.6375px, -9.7px; --mdc-ripple-fg-translate-end:14.925px, -4.3875px;">
+                            are y sure
+                          </button>
+                          <button hidden  id="Error" class="mdc-button mdc-button--raised mdc-ripple-upgraded" data-mdc-auto-init="MDCRipple" onclick="showSwal('basic')" style="--mdc-ripple-fg-size:44.775px; --mdc-ripple-fg-scale:2.07381; --mdc-ripple-fg-translate-start:0.6125px, -12.5437px; --mdc-ripple-fg-translate-end:14.925px, -4.3875px;">
+													Show
+												</button>
+
 
   <!-- End custom js for this page-->
 </body>

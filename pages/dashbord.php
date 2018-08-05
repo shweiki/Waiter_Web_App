@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_ID'])){
-  header('Location: http://localhost/wanter_order_app/login.php');
+  header('Location: http://'.$_SERVER["SERVER_NAME"].'/wanter_order_app/login.php');
         }
 
 ?>
@@ -153,9 +153,9 @@ if (!isset($_SESSION['user_ID'])){
                         <?php
                         $sql = "SELECT c.FullName , c.Num_Ph , c.Date_log  , o.total_amount , t.name_table
                          FROM booking b, customers c  , orders o  , tables_ t
-                        where c.id=  b.cus_id
-                        and o.Book_id = b.id
-                        and t.id = b.table_id
+                        where t.id = b.table_id
+                          and  c.id=  b.cus_id
+                          and o.Book_id = b.id
                         ";
 
                   $result = $conn->query($sql);

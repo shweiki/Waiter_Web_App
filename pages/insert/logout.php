@@ -5,6 +5,6 @@ session_unset();
 
 // destroy the session
 session_destroy();
-  header('Location: http://localhost/wanter_order_app/login.php');
+  header('Location: http://'. $_SERVER["SERVER_NAME"] .'/wanter_order_app/login.php');
 
  ?>

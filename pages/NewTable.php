@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_ID'])){
-  header('Location: http://localhost/wanter_order_app/login.php');
+    header('Location: http://'.$_SERVER["SERVER_NAME"].'/wanter_order_app/login.php');
         }
 
 ?>
@@ -30,7 +30,20 @@ if (!isset($_SESSION['user_ID'])){
   <div class="body-wrapper">
 		<?php
 
-		include "../connect_restaurent.php"; ?>
+		include "../connect_restaurent.php";
+    if (isset($_GET['TableIdDeleted'])) {
+    $Table_id = $_GET["TableIdDeleted"];
+    $sql = "DELETE FROM tables_ WHERE id =$Table_id ";
+
+    if ($conn->query($sql) === TRUE) {
+      $script="$('#ShowAlertQYN').click();";
+    }else {
+        $script="$('#Error').click();";
+    }
+    }else {
+      $script="";
+    }
+     ?>
 
     <!-- partial:partials/_sidebar.html -->
     <?php include "../partials/_sidebar.php"; ?>
@@ -68,7 +81,7 @@ if ($result->num_rows > 0) {
 while($row = $result->fetch_assoc()) {
 ?>
 <option value=<?php echo $row["id"]; ?>>
-<?php echo $row["name_hall"]; ?>
+<?= $row["name_hall"]; ?>
 </option>
 <?php
 }
@@ -97,11 +110,12 @@ echo "لا يوجد شيئ لعرض ........ <i class='mdi mdi-heart text-red'><
 												<th>عدد الكراسي</th>
 												<th>الصالة</th>
 												<th>ملاحظات</th>
+                        <th>#</th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php
-											$sql = "SELECT t.name_table , t.num_chair , h.name_hall , t.note  FROM tables_ t , hall h where h.id = t.hall_id ";
+											$sql = "SELECT t.id , t.name_table , t.num_chair , h.name_hall , t.note  FROM tables_ t , hall h where h.id = t.hall_id ";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -109,10 +123,11 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 			?>
 			<tr>
-				<td class=""><?php echo $row["name_table"]; ?></td>
-        	    <td><?php echo $row["num_chair"]; ?></td>
-				      <td><?php echo $row["name_hall"]; ?></td>
-	            <td><?php echo $row["note"]; ?></td>
+				<td><?= $row["name_table"]; ?></td>
+        	    <td><?= $row["num_chair"]; ?></td>
+				      <td><?= $row["name_hall"]; ?></td>
+	            <td><?=$row["note"]; ?></td>
+              	<td><a href="?TableIdDeleted=<?= $row['id'];?>"><button type="button" class="btn btn-danger">حذف</button></td></a>
 			</tr>
 			<?php
     }
@@ -145,6 +160,7 @@ $conn->close();
 	 <script src="../js/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
+  <?=  $script;?>
     $('#Addtable').submit(function(){
 
         // show that something is loading
@@ -163,7 +179,11 @@ $(document).ready(function(){
         .done(function(data){
 
             // show the response
-            $('#response').html(data);
+          //  $('#response').html(data);
+            //$("#close").click();
+              $('#response').html("");
+             $('tbody').append(data);
+  $("#ShowAlert").click();
 
         })
         .fail(function() {
@@ -179,21 +199,37 @@ $(document).ready(function(){
     });
 });
 </script>
-  <script src="../js/material-components-web.min.js"></script>
+<script src="../js/material-components-web.min.js"></script>
 
-  <!-- endinject -->
-  <!-- Plugin js for this page-->
-  <script src="../js/Chart.min.js"></script>
-  <script src="../js/progressbar.min.js"></script>
-  <!-- End plugin js for this page-->
-  <!-- inject:js -->
-  <script src="../js/misc.js"></script>
-  <script src="../js/material.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
-  <script src="../js/dashboard.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-      <script src="../js/bootstrap.bundle.min.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<script src="../js/Chart.min.js"></script>
+<script src="../js/progressbar.min.js"></script>
+<script src="../js/sweetalert.min.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<!-- End plugin js for this page-->
+<!-- inject:js -->
+<script src="../js/alerts.js"></script>
+<!-- End plugin js for this page-->
+<!-- inject:js -->
+<script src="../js/misc.js"></script>
+<script src="../js/material.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<script src="../js/dashboard.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+      <button hidden id="ShowAlert" class="mdc-button mdc-button--raised mdc-ripple-upgraded" data-mdc-auto-init="MDCRipple" onclick="showSwal('success-message')" style="--mdc-ripple-fg-size:44.775px; --mdc-ripple-fg-scale:2.07381; --mdc-ripple-fg-translate-start:2.3625px, -12.5437px; --mdc-ripple-fg-translate-end:14.925px, -4.3875px;">
+                show
+              </button>
+              <button hidden  id="ShowAlertQYN" class="mdc-button mdc-button--raised mdc-ripple-upgraded" data-mdc-auto-init="MDCRipple" onclick="showSwal('auto-close')" style="--mdc-ripple-fg-size:44.775px; --mdc-ripple-fg-scale:2.07381; --mdc-ripple-fg-translate-start:-1.6375px, -9.7px; --mdc-ripple-fg-translate-end:14.925px, -4.3875px;">
+                            are y sure
+                          </button>
+                          <button hidden  id="Error" class="mdc-button mdc-button--raised mdc-ripple-upgraded" data-mdc-auto-init="MDCRipple" onclick="showSwal('basic')" style="--mdc-ripple-fg-size:44.775px; --mdc-ripple-fg-scale:2.07381; --mdc-ripple-fg-translate-start:0.6125px, -12.5437px; --mdc-ripple-fg-translate-end:14.925px, -4.3875px;">
+                          Show
+                        </button>
 
   <!-- End custom js for this page-->
 </body>

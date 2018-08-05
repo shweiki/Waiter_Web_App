@@ -1,10 +1,7 @@
-
-  <!-- plugins:css -->
-
 <?php
 session_start();
 if (isset($_SESSION['user_ID']) && !empty($_SESSION['user_Name'])){
-    header('Location: http://localhost/wanter_order_app/pages/dashbord.php');
+    header('Location: http://'. $_SERVER["SERVER_NAME"].'/wanter_order_app/pages/dashbord.php');
         }
 ?>
 
@@ -31,13 +28,13 @@ if (isset($_SESSION['user_ID']) && !empty($_SESSION['user_Name'])){
 <body>
   <div class="body-wrapper">
     <div class="page-wrapper">
-      <main class="content-wrapper auth-screen" style=" text-align: right;" >
+      <main class="content-wrapper drawer-minimized" style=" text-align: right;" >
         <div class="mdc-layout-grid">
 					<div class="mdc-layout-grid__inner">
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4">
-						</div>
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4">
-							<div class="mdc-card"  >
+
+
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-8">
+							<div class="mdc-card" >
 
 								<section class="mdc-card__primary bg-white">
                   <form id="here" method="post" >

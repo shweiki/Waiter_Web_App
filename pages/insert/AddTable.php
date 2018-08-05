@@ -11,7 +11,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$hall_id)";
 
   if ($conn->query($sql) === TRUE) {
-      echo "تم اضافة طاولة جديدة";
+		$id = "SELECT max(id) FROM tables_ LIMIT 1";
+$result = $conn->query($id);
+$idTable= mysqli_fetch_assoc($result);
+$idTable++;
+echo "<tr>
+		<td>$name_table</td>
+		<td>$num_chair</td>
+		<td>$note</td>
+		<td>$hall_id</td>
+	<td><a href='?TableIdDeleted=".implode($idTable)."'><button type='button' class='btn btn-danger'>حذف</button></td></a>
+	</tr>";
+
   } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
   }
@@ -19,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $conn->close();
 
 }else {
-	header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
+	header('Location: http://'. $_SERVER["SERVER_NAME"].'/wanter_order_app/pages/samples/404.html');
 }
 
    ?>
