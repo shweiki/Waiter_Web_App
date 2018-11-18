@@ -111,7 +111,7 @@ pages/OrderTable.php
 pages/ShowItemGroup.php
 pages/ShowTableHall.php
 pages/charts/chartjs.html
-pages/dashbord.php
+pages/dashboard.php
 pages/forms/basic-forms.html
 pages/insert/AddCus.php
 pages/insert/AddGroupItem.php

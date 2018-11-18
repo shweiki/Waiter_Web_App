@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['user_ID']) && !empty($_SESSION['user_Name'])){
-    header('Location: http://'. $_SERVER["SERVER_NAME"].'/wanter_order_app/pages/dashbord.php');
+    header('Location: http://'. $_SERVER["SERVER_NAME"].'/Wanter_app_php/pages/dashboard.php');
         }
 ?>
 

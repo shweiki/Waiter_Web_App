@@ -41,7 +41,7 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 
 }else {
-  header('Location: http://'. $_SERVER["SERVER_NAME"].'/wanter_order_app/pages/samples/404.html');
+  header('Location: http://'. $_SERVER["SERVER_NAME"].'/Wanter_app_php/pages/samples/404.html');
 }
 
  ?>

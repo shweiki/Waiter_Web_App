@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_ID'])){
-    header('Location: http://'.$_SERVER["SERVER_NAME"].'/wanter_order_app/login.php');
+    header('Location: http://'.$_SERVER["SERVER_NAME"].'/Wanter_app_php/login.php');
         }
 
 ?>
@@ -40,7 +40,7 @@ $row = mysqli_fetch_assoc($result);
 	 // output data of each row
 	$hall_name = $row["name_hall"];
 	}else {
-	header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
+	header('Location: http://localhost/Wanter_app_php/pages/samples/404.html');
 	}
 		 ?>
     <!-- partial:partials/_sidebar.html -->

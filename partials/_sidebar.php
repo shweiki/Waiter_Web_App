@@ -11,7 +11,7 @@
         <div class="mdc-list-group">
           <nav class="mdc-list mdc-drawer-menu">
             <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link" href="../pages/dashbord.php">
+              <a class="mdc-drawer-link" href="../pages/dashboard.php">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">desktop_mac</i>
             الرئسية
               </a>

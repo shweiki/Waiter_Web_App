@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_ID'])){
-  header('Location: http://'.$_SERVER["SERVER_NAME"].'/wanter_order_app/login.php');
+  header('Location: http://'.$_SERVER["SERVER_NAME"].'/Wanter_app_php/login.php');
         }
 
 ?>

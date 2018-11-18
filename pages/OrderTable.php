@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_ID'])){
-    header('Location: http://'.$_SERVER["SERVER_NAME"].'/wanter_order_app/login.php');
+    header('Location: http://'.$_SERVER["SERVER_NAME"].'/Wanter_app_php/login.php');
         }
 
 ?>
@@ -34,7 +34,7 @@ if (!isset($_SESSION['user_ID'])){
 		 $table_id = $_GET["table_id"];
 		$table_name = $_GET["table_name"];
 	}else {
-	header('Location: http://localhost/wanter_order_app/pages/samples/404.html');
+	header('Location: http://localhost/Wanter_app_php/pages/samples/404.html');
 	}
 		include "../connect_restaurent.php";
 		?>
